@@ -1,0 +1,207 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                 String          @id @default(uuid())
+  email              String          @unique
+  passwordHash       String
+  role               String          @default("STUDENT") // STUDENT, ADMIN, SUPER_ADMIN, EVENT_COORDINATOR
+  isActive           Boolean         @default(true)
+  mustChangePassword Boolean         @default(false)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  studentProfile     StudentProfile?
+  registrations      Registration[]
+  captainTeams       Team[]           @relation("CaptainTeams")
+  memberProfiles     TeamMember[]     @relation("MemberUser")
+  adminAuditLogs     AdminActionLog[]
+  notifications      Notification[]
+}
+
+model StudentProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName         String
+  mobile           String
+  course           String
+  semester         String
+  enrollmentNumber String?
+  department       String?
+  college          String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Event {
+  id                 String         @id @default(uuid())
+  name               String
+  slug               String         @unique
+  description        String
+  category           String         @default("TECHNICAL") // ESPORTS, TECHNICAL, CULTURAL, CEREMONY
+  day                String         @default("DAY_1")     // DAY_1, DAY_2
+  date               String         @default("14 September 2026")
+  startTime          String?
+  endTime            String?
+  venue              String?        @default("University Campus")
+  registrationFee    Int            @default(0)
+  maxParticipants    Int?
+  isRegistrationOpen Boolean        @default(true)
+  requiresPayment    Boolean        @default(true)
+  rules              String?
+  isTeamEvent        Boolean        @default(false)
+  minTeamSize        Int            @default(1)
+  maxTeamSize        Int            @default(1)
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  registrations      Registration[]
+}
+
+model Registration {
+  id                 String    @id @default(uuid())
+  registrationNumber String    @unique // e.g. ENG26-BGMI-000123
+  studentId          String
+  student            User      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  eventId            String
+  event              Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  status             String    @default("PAYMENT_PENDING") // PAYMENT_PENDING, PAYMENT_SUBMITTED, UNDER_REVIEW, APPROVED, REJECTED, CANCELLED
+  teamName           String?
+  teamMembers        String?
+  notes              String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  payment            Payment?
+
+  @@unique([studentId, eventId])
+}
+
+model Payment {
+  id              String        @id @default(uuid())
+  registrationId  String        @unique
+  registration    Registration  @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+  amount          Int
+  transactionId   String        // UTR / Transaction ID
+  screenshotPath  String?
+  status          String        @default("UNDER_REVIEW") // UNDER_REVIEW, APPROVED, REJECTED, RESUBMIT_REQUESTED
+  rejectionReason String?
+  verifiedBy      String?       // Admin email or ID
+  verifiedAt      DateTime?
+  paymentDate     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([transactionId])
+}
+
+model AdminActionLog {
+  id         String   @id @default(uuid())
+  adminId    String
+  admin      User     @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  action     String
+  targetType String
+  targetId   String?
+  details    String?
+  createdAt  DateTime @default(now())
+}
+
+model SystemSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   @default("INFO") // INFO, SUCCESS, WARNING, ERROR
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+model FaqItem {
+  id          String   @id @default(uuid())
+  question    String
+  answer      String
+  category    String   @default("GENERAL")
+  order       Int      @default(0)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Team {
+  id          String        @id @default(uuid())
+  teamId      String        @unique // e.g. ENG26-BGMI-T0001
+  teamName    String
+  game        String        // BGMI, FREE_FIRE
+  captainId   String
+  captain     User          @relation("CaptainTeams", fields: [captainId], references: [id], onDelete: Cascade)
+  memberCount Int           @default(1)
+  status      String        @default("PAYMENT_PENDING") // DRAFT, PAYMENT_PENDING, PAYMENT_SUBMITTED, UNDER_REVIEW, APPROVED, REJECTED, RESUBMISSION_REQUIRED, CANCELLED
+  isLocked    Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  members     TeamMember[]
+  payment     TeamPayment?
+
+  @@unique([captainId, game])
+  @@index([game])
+  @@index([status])
+}
+
+model TeamMember {
+  id               String    @id @default(uuid())
+  teamId           String
+  team             Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  studentId        String?
+  student          User?     @relation("MemberUser", fields: [studentId], references: [id], onDelete: SetNull)
+  fullName         String
+  email            String
+  mobile           String
+  course           String
+  semester         String
+  enrollmentNumber String?
+  ign              String    // In-Game Name
+  gameUid          String    // BGMI Player ID or Free Fire UID
+  isCaptain        Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([teamId])
+  @@index([gameUid])
+}
+
+model TeamPayment {
+  id              String    @id @default(uuid())
+  teamId          String    @unique
+  team            Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  amount          Int
+  expectedAmount  Int
+  transactionId   String
+  screenshotPath  String?
+  driveUrl        String?
+  status          String    @default("UNDER_REVIEW") // UNDER_REVIEW, APPROVED, REJECTED, RESUBMISSION_REQUIRED
+  rejectionReason String?
+  verifiedBy      String?
+  verifiedAt      DateTime?
+  paymentDate     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([transactionId])
+}
+

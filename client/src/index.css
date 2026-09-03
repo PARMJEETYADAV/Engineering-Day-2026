@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #010914;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Engineering Cyberpunk / HUD Accents */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.tech-dots-bg {
+  background-image: radial-gradient(rgba(0, 217, 255, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glow Utilities */
+.glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
+}
+
+.glow-yellow {
+  text-shadow: 0 0 12px rgba(255, 200, 0, 0.7);
+}
+
+.border-glow-cyan {
+  border-color: #00D9FF;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.35);
+}
+
+.border-glow-yellow {
+  border-color: #FFC800;
+  box-shadow: 0 0 15px rgba(255, 200, 0, 0.35);
+}
+
+/* HUD Card with Corner Brackets */
+.hud-card {
+  position: relative;
+  background: rgba(2, 14, 28, 0.88);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.hud-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #00D9FF;
+  border-left: 2px solid #00D9FF;
+}
+
+.hud-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid #FFC800;
+  border-right: 2px solid #FFC800;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00D9FF;
+}
+
+/* Printable Confirmation Pass Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-pass, #printable-pass * {
+    visibility: visible;
+  }
+  #printable-pass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #010914 !important;
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
