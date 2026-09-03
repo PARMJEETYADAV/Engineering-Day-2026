@@ -289,6 +289,12 @@ export const RegisterPage: React.FC = () => {
                 </>
               )}
             </button>
+
+            {loading && (
+              <p className="text-[11px] text-[#00D9FF] font-tech text-center animate-pulse pt-2">
+                ⚡ Connecting to cloud server... (if server was sleeping, please allow ~40s on first load)
+              </p>
+            )}
           </form>
 
           <div className="mt-6 pt-4 border-t border-white/10 text-center text-xs text-[#8594A6]">

@@ -106,6 +106,12 @@ export const AdminLoginPage: React.FC = () => {
                 </>
               )}
             </button>
+
+            {loading && (
+              <p className="text-[11px] text-[#00D9FF] font-tech text-center animate-pulse pt-1">
+                ⚡ Connecting to secure cloud server... (if server was sleeping, please wait ~40 seconds)
+              </p>
+            )}
           </form>
 
           <div className="pt-4 border-t border-white/10 text-center">

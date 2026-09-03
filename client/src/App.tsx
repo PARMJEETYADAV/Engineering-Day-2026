@@ -47,6 +47,11 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 export const App: React.FC = () => {
+  React.useEffect(() => {
+    // Pre-warm Render backend on initial site load to prevent cold start delays
+    fetch('https://engineering-day-2026.onrender.com/api/events').catch(() => {});
+  }, []);
+
   return (
     <Routes>
       {/* Public Routes */}
