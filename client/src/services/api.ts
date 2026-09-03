@@ -2,9 +2,7 @@ import axios from 'axios';
 
 const apiBase = import.meta.env.VITE_API_URL
   ? `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api`
-  : import.meta.env.PROD
-  ? 'https://engineering-day-2026.onrender.com/api'
-  : '/api';
+  : 'https://engineering-day-2026.onrender.com/api';
 
 const api = axios.create({
   baseURL: apiBase,

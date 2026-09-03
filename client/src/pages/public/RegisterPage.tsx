@@ -65,9 +65,8 @@ export const RegisterPage: React.FC = () => {
       return;
     }
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if (!passwordRegex.test(formData.password)) {
-      setError('Password must be at least 8 characters and include uppercase, lowercase, and numeric digits.');
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long.');
       return;
     }
 
@@ -245,7 +244,7 @@ export const RegisterPage: React.FC = () => {
                     type="password"
                     name="password"
                     required
-                    placeholder="Min 8 characters"
+                    placeholder="Min 6 characters"
                     value={formData.password}
                     onChange={handleChange}
                     className="w-full pl-9 pr-4 py-2.5 bg-[#000510] border border-[#00D9FF]/20 rounded text-xs sm:text-sm text-white focus:outline-none focus:border-[#00D9FF]"
@@ -273,7 +272,7 @@ export const RegisterPage: React.FC = () => {
             </div>
 
             <p className="text-[11px] text-[#8594A6] font-tech pt-1">
-              * Password must be at least 8 characters with uppercase, lowercase, and numbers.
+              * Password must be at least 6 characters.
             </p>
 
             <button

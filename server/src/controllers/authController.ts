@@ -57,12 +57,10 @@ export class AuthController {
         return;
       }
 
-      // Password rules: min 8 chars, 1 uppercase, 1 lowercase, 1 digit
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-      if (!password || !passwordRegex.test(password)) {
+      if (!password || password.length < 6) {
         res.status(400).json({
           success: false,
-          message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.',
+          message: 'Password must be at least 6 characters long.',
         });
         return;
       }
