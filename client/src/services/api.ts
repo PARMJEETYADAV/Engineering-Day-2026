@@ -11,7 +11,6 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true,
 });
 
 // Attach JWT token from localStorage to every outgoing request

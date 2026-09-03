@@ -63,18 +63,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (!err.response || err.message === 'Network Error') {
         return {
           success: false,
-          message: 'Cannot reach backend server. Please verify your backend API is deployed and VITE_API_URL is configured.',
+          message: 'Cannot reach backend server. Please make sure the backend on Render is active.',
         };
       }
-      if (err.response?.status === 404) {
-        return {
-          success: false,
-          message: 'Backend API endpoint not found. Please ensure the backend server is running and VITE_API_URL points to the backend.',
-        };
-      }
+      const backendMessage = typeof err.response?.data === 'object' ? err.response?.data?.message : null;
       return {
         success: false,
-        message: err.response?.data?.message || 'Failed to authenticate. Please check credentials.',
+        message: backendMessage || err.message || 'Failed to authenticate. Please check credentials.',
       };
     }
   };
@@ -94,12 +89,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (!err.response || err.message === 'Network Error') {
         return {
           success: false,
-          message: 'Cannot reach backend server. Please verify your backend API is running and VITE_API_URL is set.',
+          message: 'Cannot reach backend server. Please make sure the backend on Render is active.',
         };
       }
+      const backendMessage = typeof err.response?.data === 'object' ? err.response?.data?.message : null;
       return {
         success: false,
-        message: err.response?.data?.message || 'Registration failed. Please try again.',
+        message: backendMessage || err.message || 'Registration failed. Please check your details.',
       };
     }
   };
