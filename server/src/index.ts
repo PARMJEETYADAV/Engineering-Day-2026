@@ -152,11 +152,14 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
+import { ensureDatabaseInitialized } from './utils/initDatabase';
+
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
+  app.listen(PORT, async () => {
     console.log(`🚀 Engineering Day 2026 API server running on port ${PORT}`);
     console.log(`🌐 Base URL: http://localhost:${PORT}`);
     console.log(`📅 Event Dates: 14th & 15th September 2026`);
+    await ensureDatabaseInitialized();
   });
 }
 
