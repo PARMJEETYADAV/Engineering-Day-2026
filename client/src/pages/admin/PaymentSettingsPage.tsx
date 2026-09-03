@@ -237,7 +237,7 @@ export const PaymentSettingsPage: React.FC = () => {
                 required
                 value={accountName}
                 onChange={(e) => setAccountName(e.target.value)}
-                placeholder="Engineering Day 2026 Organizers"
+                placeholder="Engineer's Day 2026 Organizers"
                 className="w-full p-2.5 bg-[#010914] border border-white/20 rounded text-sm text-white focus:outline-none focus:border-[#00D9FF]"
               />
             </div>

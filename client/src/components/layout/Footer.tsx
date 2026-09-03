@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-[#00D9FF]/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8594A6]">
-          <p>© 2026 Engineering Day Organizing Committee. All rights reserved.</p>
+          <p>© 2026 Engineer's Day Organizing Committee. All rights reserved.</p>
           <div className="flex items-center space-x-4 mt-4 sm:mt-0 font-tech text-[11px]">
             <span className="text-[#00D9FF]">PORTAL STATUS: ONLINE</span>
             <span>•</span>

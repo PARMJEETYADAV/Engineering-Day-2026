@@ -126,7 +126,7 @@ export class AuthController {
         await tx.notification.create({
           data: {
             userId: user.id,
-            title: 'Welcome to Engineering Day 2026!',
+            title: "Welcome to Engineer's Day 2026!",
             message: 'Your portal account is active. Explore events and submit your registration early.',
             type: 'SUCCESS',
             link: '/events',
@@ -148,7 +148,7 @@ export class AuthController {
 
       res.status(201).json({
         success: true,
-        message: 'Account created successfully! Welcome to Engineering Day 2026.',
+        message: "Account created successfully! Welcome to Engineer's Day 2026.",
         token,
         user: {
           id: newUser.id,

@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none">
-                ENGINEERING <span className="text-[#00D9FF]">DAY</span>
+                ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
               </span>
               <span className="font-tech text-[10px] tracking-[0.25em] text-[#8594A6] uppercase">
                 EDITION 2026

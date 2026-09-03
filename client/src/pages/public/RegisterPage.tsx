@@ -99,7 +99,7 @@ export const RegisterPage: React.FC = () => {
             CREATE STUDENT <span className="text-[#FFC800]">ACCOUNT</span>
           </h1>
           <p className="font-oswald text-xs sm:text-sm text-[#8594A6] tracking-wider uppercase">
-            ENGINEERING DAY 2026 • 14TH & 15TH SEPTEMBER
+            ENGINEER'S DAY 2026 • 14TH & 15TH SEPTEMBER
           </p>
         </div>
 

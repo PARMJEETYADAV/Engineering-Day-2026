@@ -135,7 +135,7 @@ export async function ensureDatabaseInitialized() {
         {
           name: 'PRIZE DISTRIBUTION',
           slug: 'prize-distribution',
-          description: 'Recognizing winners and celebrating excellence achieved during Engineering Day 2026.',
+          description: "Recognizing winners and celebrating excellence achieved during Engineer's Day 2026.",
           category: 'CEREMONY',
           day: 'DAY_2',
           date: '15 September 2026',
@@ -168,7 +168,7 @@ export async function ensureDatabaseInitialized() {
         { key: 'contact_phone', value: '+91 94678 43851', description: 'Coordinator Contact' },
         { key: 'contact_venue', value: 'Apex University Auditorium, VT Road, Mansarovar', description: 'Event Location' },
         { key: 'default_upi_id', value: 'engineeringday2026@upi', description: 'Default UPI ID' },
-        { key: 'default_upi_name', value: 'Apex Engineering Day 2026', description: 'Default UPI Name' },
+        { key: 'default_upi_name', value: "Apex Engineer's Day 2026", description: 'Default UPI Name' },
       ];
       for (const s of defaultSettings) {
         await prisma.systemSetting.create({ data: s });

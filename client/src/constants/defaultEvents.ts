@@ -110,7 +110,7 @@ export const DEFAULT_EVENTS: EventItem[] = [
     id: 'evt-prize',
     name: 'PRIZE DISTRIBUTION',
     slug: 'prize-distribution',
-    description: 'Recognizing winners and celebrating excellence achieved during Engineering Day 2026.',
+    description: "Recognizing winners and celebrating excellence achieved during Engineer's Day 2026.",
     category: 'CEREMONY',
     day: 'DAY_2',
     date: '15 September 2026',

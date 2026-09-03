@@ -71,7 +71,7 @@ export const EventScheduleSection: React.FC<EventScheduleProps> = ({ events }) =
       time: '03:00 PM - 05:30 PM',
       venue: 'Apex University Auditorium, VT Road, Mansarovar',
       category: 'CEREMONY',
-      desc: 'Recognizing winners and celebrating excellence achieved during Engineering Day 2026.',
+      desc: "Recognizing winners and celebrating excellence achieved during Engineer's Day 2026.",
     },
   ];
 

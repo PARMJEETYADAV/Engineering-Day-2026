@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
         {/* Poster-Inspired Giant Headline */}
         <div className="space-y-0 select-none">
           <h1 className="font-anton uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-white leading-none drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]">
-            ENGINEERING
+            ENGINEER'S
           </h1>
           <div className="relative inline-block">
             <h2 className="font-anton uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-normal text-[#FFC800] leading-none drop-shadow-[0_0_35px_rgba(255,200,0,0.4)]">

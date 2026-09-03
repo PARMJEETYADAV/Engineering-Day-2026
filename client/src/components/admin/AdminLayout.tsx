@@ -61,7 +61,7 @@ export const AdminLayout: React.FC = () => {
           </div>
           <div>
             <span className="font-anton text-lg tracking-wider text-white">
-              ENGINEERING DAY 2026 <span className="text-[#FFC800]">ADMIN CONSOLE</span>
+              ENGINEER'S DAY 2026 <span className="text-[#FFC800]">ADMIN CONSOLE</span>
             </span>
             <span className="block font-tech text-[10px] text-[#00D9FF]">
               FACULTY OF ENGINEERING & TECHNOLOGY

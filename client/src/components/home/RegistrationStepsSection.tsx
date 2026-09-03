@@ -45,7 +45,7 @@ export const RegistrationStepsSection: React.FC = () => {
             REGISTRATION <span className="text-[#00D9FF]">PROCESS</span>
           </h2>
           <p className="font-oswald text-sm sm:text-base text-[#8594A6] tracking-wider uppercase max-w-lg mx-auto">
-            HOW TO SECURE YOUR ENTRY FOR ENGINEERING DAY 2026
+            HOW TO SECURE YOUR ENTRY FOR ENGINEER'S DAY 2026
           </p>
         </div>
 

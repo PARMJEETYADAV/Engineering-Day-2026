@@ -58,7 +58,7 @@ export const CountdownSection: React.FC = () => {
               </span>
             </div>
             <h3 className="font-anton text-2xl sm:text-3xl text-white tracking-wider">
-              {timeLeft.hasStarted ? 'ENGINEERING DAY 2026 IS LIVE!' : 'COUNTDOWN TO KICKOFF'}
+              {timeLeft.hasStarted ? "ENGINEER'S DAY 2026 IS LIVE!" : 'COUNTDOWN TO KICKOFF'}
             </h3>
             <p className="font-tech text-xs text-[#8594A6]">
               Commencing on Monday, 14th September 2026 at 09:00 AM IST

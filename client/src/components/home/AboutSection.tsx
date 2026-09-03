@@ -32,7 +32,7 @@ export const AboutSection: React.FC = () => {
                 </div>
 
                 <p className="text-xs sm:text-sm text-[#D0D5DC] leading-relaxed">
-                  Engineering Day 2026 is the university's premier technical showcase, uniting undergraduate,
+                  Engineer's Day 2026 is the university's premier technical showcase, uniting undergraduate,
                   postgraduate, and polytechnic innovators across disciplines for 48 hours of competitive problem-solving.
                 </p>
 

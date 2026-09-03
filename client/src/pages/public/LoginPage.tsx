@@ -49,7 +49,7 @@ export const LoginPage: React.FC = () => {
             STUDENT <span className="text-[#FFC800]">LOGIN</span>
           </h1>
           <p className="font-oswald text-xs sm:text-sm text-[#8594A6] tracking-wider uppercase">
-            ENGINEERING DAY 2026 REGISTRATION CONSOLE
+            ENGINEER'S DAY 2026 REGISTRATION CONSOLE
           </p>
         </div>
 

@@ -6,7 +6,7 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: 'How do I register for Engineering Day 2026?',
+      q: "How do I register for Engineer's Day 2026?",
       a: 'First, create a student account using your email and mobile number. Once logged in, select the events you wish to participate in, scan the official university UPI QR code to complete your payment, and upload your payment screenshot along with the 12-digit UTR number.',
     },
     {

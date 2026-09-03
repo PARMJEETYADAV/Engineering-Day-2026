@@ -42,7 +42,7 @@ export const StudentDashboardPage: React.FC = () => {
             <div className="space-y-2">
               <div className="inline-flex items-center space-x-2 text-xs font-tech text-[#00D9FF] font-bold uppercase">
                 <Calendar className="w-4 h-4 text-[#FFC800]" />
-                <span>ENGINEERING DAY • 14–15 SEPTEMBER 2026</span>
+                <span>ENGINEER'S DAY • 14–15 SEPTEMBER 2026</span>
               </div>
               <h1 className="font-anton text-3xl sm:text-5xl text-white tracking-wide">
                 WELCOME, <span className="text-[#FFC800]">{user?.fullName?.toUpperCase() || 'STUDENT'}</span>

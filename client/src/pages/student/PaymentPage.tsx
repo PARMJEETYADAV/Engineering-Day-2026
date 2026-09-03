@@ -278,7 +278,7 @@ export const PaymentPage: React.FC = () => {
                       PAYEE ACCOUNT NAME
                     </span>
                     <span className="font-oswald text-base text-white font-bold">
-                      {paymentConfig?.accountName || 'Engineering Day Organizers'}
+                      {paymentConfig?.accountName || "Engineer's Day Organizers"}
                     </span>
                   </div>
 

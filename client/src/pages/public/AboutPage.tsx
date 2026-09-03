@@ -13,7 +13,7 @@ export const AboutPage: React.FC = () => {
             <span>ESTABLISHED ANNUAL TRADITION • 14-15 SEPTEMBER 2026</span>
           </div>
           <h1 className="font-anton text-4xl sm:text-6xl text-white tracking-wide">
-            ABOUT <span className="text-[#FFC800]">ENGINEERING DAY</span>
+            ABOUT <span className="text-[#FFC800]">ENGINEER'S DAY</span>
           </h1>
           <p className="font-oswald text-base sm:text-lg text-[#8594A6] tracking-wider uppercase">
             COMMEMORATING INNOVATION, EXCELLENCE, AND FUTURE CREATORS
@@ -34,7 +34,7 @@ export const AboutPage: React.FC = () => {
                 revolutionized national infrastructure.
               </p>
               <p>
-                At our university, Engineering Day has evolved beyond traditional speeches into a vibrant, high-octane,
+                At our university, Engineer's Day has evolved beyond traditional speeches into a vibrant, high-octane,
                 multi-disciplinary symposium spanning two full days: <strong>14th & 15th September 2026</strong>.
                 It bridges the gap between foundational engineering principles and 21st-century digital craft.
               </p>

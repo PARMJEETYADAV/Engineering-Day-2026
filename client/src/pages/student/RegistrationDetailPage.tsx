@@ -113,7 +113,7 @@ export const RegistrationDetailPage: React.FC = () => {
               </div>
               <div>
                 <div className="font-anton text-2xl text-white tracking-wide">
-                  ENGINEERING <span className="text-[#FFC800]">DAY 2026</span>
+                  ENGINEER'S <span className="text-[#FFC800]">DAY 2026</span>
                 </div>
                 <div className="font-tech text-xs text-[#00D9FF] tracking-widest font-bold">
                   OFFICIAL UNIVERSITY ADMISSION PASS
