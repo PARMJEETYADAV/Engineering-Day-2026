@@ -5,10 +5,13 @@ import api from '../../services/api';
 import { EventItem } from '../../types';
 import { useAuth } from '../../context/AuthContext';
 
+import { DEFAULT_EVENTS } from '../../constants/defaultEvents';
+
 export const EventDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [event, setEvent] = useState<EventItem | null>(null);
-  const [loading, setLoading] = useState(true);
+  const fallback = DEFAULT_EVENTS.find((e) => e.slug === slug) || null;
+  const [event, setEvent] = useState<EventItem | null>(fallback);
+  const [loading, setLoading] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -17,12 +20,13 @@ export const EventDetailPage: React.FC = () => {
     api
       .get(`/events/${slug}`)
       .then((res) => {
-        if (res.data?.success) {
+        if (res.data?.success && res.data.event) {
           setEvent(res.data.event);
         }
       })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
+      .catch(() => {
+        // Fallback already pre-loaded
+      });
   }, [slug]);
 
   if (loading) {

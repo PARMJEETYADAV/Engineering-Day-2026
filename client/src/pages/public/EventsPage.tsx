@@ -4,9 +4,11 @@ import { Gamepad2, Code2, HelpCircle, Music, Trophy, Search, Filter, Calendar, M
 import api from '../../services/api';
 import { EventItem } from '../../types';
 
+import { DEFAULT_EVENTS } from '../../constants/defaultEvents';
+
 export const EventsPage: React.FC = () => {
-  const [events, setEvents] = useState<EventItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<EventItem[]>(DEFAULT_EVENTS);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedDay, setSelectedDay] = useState<string>('ALL');
   const [search, setSearch] = useState('');
@@ -15,12 +17,13 @@ export const EventsPage: React.FC = () => {
     api
       .get('/events')
       .then((res) => {
-        if (res.data?.success) {
+        if (res.data?.success && Array.isArray(res.data.events) && res.data.events.length > 0) {
           setEvents(res.data.events);
         }
       })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
+      .catch((err) => {
+        console.warn('Backend API connecting or offline. Using local event schedule.', err);
+      });
   }, []);
 
   const getEventIcon = (category: string) => {

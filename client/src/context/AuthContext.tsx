@@ -60,6 +60,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return { success: false, message: res.data?.message || 'Login failed' };
     } catch (err: any) {
+      if (!err.response || err.message === 'Network Error') {
+        return {
+          success: false,
+          message: 'Cannot reach backend server. Please verify your backend API is deployed and VITE_API_URL is configured.',
+        };
+      }
+      if (err.response?.status === 404) {
+        return {
+          success: false,
+          message: 'Backend API endpoint not found. Please ensure the backend server is running and VITE_API_URL points to the backend.',
+        };
+      }
       return {
         success: false,
         message: err.response?.data?.message || 'Failed to authenticate. Please check credentials.',
@@ -79,9 +91,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return { success: false, message: res.data?.message || 'Registration failed' };
     } catch (err: any) {
+      if (!err.response || err.message === 'Network Error') {
+        return {
+          success: false,
+          message: 'Cannot reach backend server. Please verify your backend API is running and VITE_API_URL is set.',
+        };
+      }
       return {
         success: false,
-        message: err.response?.data?.message || 'Failed to create student account.',
+        message: err.response?.data?.message || 'Registration failed. Please try again.',
       };
     }
   };

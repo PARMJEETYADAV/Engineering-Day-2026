@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: engineering-day-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install && npx prisma generate && npx prisma db push && npm run build
+    startCommand: npm run start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: parmjeetyadav1230@gmail.com
+      - key: ADMIN_PASSWORD
+        value: Engineeringday@2026
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: DEFAULT_UPI_ID
+        value: engineeringday2026@upi
+      - key: DEFAULT_UPI_NAME
+        value: Engineering Day 2026 Organizers
+      - key: MAX_FILE_SIZE_MB
+        value: 5
