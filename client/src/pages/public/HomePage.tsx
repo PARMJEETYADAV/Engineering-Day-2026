@@ -9,9 +9,10 @@ import { ImportantInfoSection } from '../../components/home/ImportantInfoSection
 import { FaqSection } from '../../components/home/FaqSection';
 import api from '../../services/api';
 import { EventItem } from '../../types';
+import { DEFAULT_EVENTS } from '../../constants/defaultEvents';
 
 export const HomePage: React.FC = () => {
-  const [events, setEvents] = useState<EventItem[]>([]);
+  const [events, setEvents] = useState<EventItem[]>(DEFAULT_EVENTS);
 
   useEffect(() => {
     api

@@ -104,10 +104,10 @@ export async function ensureDatabaseInitialized() {
           startTime: '02:30 PM',
           endTime: '04:30 PM',
           venue: defaultVenue,
-          registrationFee: 49,
+          registrationFee: 0,
           maxParticipants: 80,
           isRegistrationOpen: true,
-          requiresPayment: true,
+          requiresPayment: false,
           isTeamEvent: false,
           minTeamSize: 1,
           maxTeamSize: 1,
@@ -132,32 +132,31 @@ export async function ensureDatabaseInitialized() {
           maxTeamSize: 6,
           rules: '1. Solo or group performance allowed.\n2. Time limit: Maximum 4 minutes per act.',
         },
-        {
-          name: 'PRIZE DISTRIBUTION',
-          slug: 'prize-distribution',
-          description: "Recognizing winners and celebrating excellence achieved during Engineer's Day 2026.",
-          category: 'CEREMONY',
-          day: 'DAY_2',
-          date: '15 September 2026',
-          startTime: '03:00 PM',
-          endTime: '05:30 PM',
-          venue: defaultVenue,
-          registrationFee: 0,
-          maxParticipants: null,
-          isRegistrationOpen: false,
-          requiresPayment: false,
-          isTeamEvent: false,
-          minTeamSize: 1,
-          maxTeamSize: 1,
-          rules: '1. Open to all students, faculty, and participants.\n2. Trophy, medal, and certificate distribution.',
-        },
       ];
 
       for (const ev of events) {
         await prisma.event.create({ data: ev });
       }
-      console.log(`📅 Auto-seeded 6 standard competition events`);
+      console.log(`📅 Auto-seeded 5 standard competition events`);
     }
+
+    // Always ensure Prize Distribution is completely deleted and Quiz is free in existing DBs
+    await prisma.event.deleteMany({
+      where: {
+        OR: [
+          { slug: 'prize-distribution' },
+          { name: { contains: 'PRIZE DISTRIBUTION' } },
+        ],
+      },
+    }).catch(() => {});
+
+    await prisma.event.updateMany({
+      where: { slug: 'quiz' },
+      data: {
+        registrationFee: 0,
+        requiresPayment: false,
+      },
+    }).catch(() => {});
 
     // 4. Ensure System Settings exist
     const settingsCount = await prisma.systemSetting.count();

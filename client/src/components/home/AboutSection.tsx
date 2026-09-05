@@ -42,7 +42,7 @@ export const AboutSection: React.FC = () => {
                     <div className="font-tech text-[10px] text-[#8594A6]">Intense Excitement</div>
                   </div>
                   <div className="p-3 bg-[#010914] rounded border border-[#00D9FF]/30">
-                    <div className="font-anton text-2xl text-[#00D9FF]">6+ EVENTS</div>
+                    <div className="font-anton text-2xl text-[#00D9FF]">5 EVENTS</div>
                     <div className="font-tech text-[10px] text-[#8594A6]">Tournaments & Stage</div>
                   </div>
                 </div>

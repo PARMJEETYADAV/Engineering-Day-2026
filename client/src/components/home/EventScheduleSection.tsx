@@ -43,8 +43,8 @@ export const EventScheduleSection: React.FC<EventScheduleProps> = ({ events }) =
     {
       name: 'QUIZ COMPETITION',
       slug: 'quiz',
-      fee: '₹49',
-      isFree: false,
+      fee: 'FREE ENTRY',
+      isFree: true,
       time: '02:30 PM - 04:30 PM',
       venue: 'Apex University Auditorium, VT Road, Mansarovar',
       category: 'TECHNICAL',
@@ -62,16 +62,6 @@ export const EventScheduleSection: React.FC<EventScheduleProps> = ({ events }) =
       venue: 'Apex University Auditorium, VT Road, Mansarovar',
       category: 'CULTURAL',
       desc: 'A platform for students to showcase their singing, dancing, performing and creative talents.',
-    },
-    {
-      name: 'PRIZE DISTRIBUTION',
-      slug: 'prize-distribution',
-      fee: 'FREE ENTRY',
-      isFree: true,
-      time: '03:00 PM - 05:30 PM',
-      venue: 'Apex University Auditorium, VT Road, Mansarovar',
-      category: 'CEREMONY',
-      desc: "Recognizing winners and celebrating excellence achieved during Engineer's Day 2026.",
     },
   ];
 

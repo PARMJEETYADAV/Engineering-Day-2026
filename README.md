@@ -99,10 +99,9 @@ This seeds:
   1. `E-SPORTS — BGMI` (₹49)
   2. `E-SPORTS — FREE FIRE` (₹49)
   3. `BLIND CODING COMPETITION` (₹49)
-  4. `QUIZ COMPETITION` (Configurable)
+  4. `QUIZ COMPETITION` (Free Entry)
 - **Day 2 Events**:
-  5. `CULTURAL PERFORMANCE` (Configurable)
-  6. `PRIZE DISTRIBUTION` (Recognition ceremony)
+  5. `CULTURAL PERFORMANCE` (Free Entry)
 - System settings and default QR code path (`Qr Code For Payment.jpeg`).
 
 ### 5. Run Development Servers

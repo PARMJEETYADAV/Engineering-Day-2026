@@ -26,7 +26,7 @@ export const RegisterEventPage: React.FC = () => {
       .get('/events')
       .then((res) => {
         if (res.data?.success) {
-          // Filter out ceremonies like Prize Distribution which don't have normal participant registration
+          // Filter out non-registerable ceremonies
           const registerable = res.data.events.filter(
             (e: EventItem) => e.isRegistrationOpen && e.category !== 'CEREMONY'
           );
