@@ -1,7 +1,7 @@
 {
   "name": "engineering-day-2026-server",
   "version": "1.0.0",
-  "description": "Production-ready backend API for Engineering Day 2026 Registration Portal",
+  "description": "Production-ready backend API for Engineer's Day 2026 Registration Portal",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",

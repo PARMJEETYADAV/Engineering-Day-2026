@@ -32,7 +32,7 @@ class EmailService {
   }
 
   async sendEmail({ to, subject, html, text }: SendEmailOptions): Promise<boolean> {
-    const from = process.env.EMAIL_FROM || 'Engineering Day 2026 <no-reply@engineeringday2026.edu>';
+    const from = process.env.EMAIL_FROM || "Engineer's Day 2026 <no-reply@engineeringday2026.edu>";
 
     if (this.isConfigured && this.transporter) {
       try {
@@ -62,10 +62,10 @@ class EmailService {
   async sendWelcomeEmail(to: string, studentName: string): Promise<boolean> {
     return this.sendEmail({
       to,
-      subject: 'Welcome to Engineering Day 2026 Registration Portal',
+      subject: "Welcome to Engineer's Day 2026 Registration Portal",
       html: `
         <div style="font-family: Arial, sans-serif; background-color: #010914; color: #FFFFFF; padding: 24px; border-radius: 8px;">
-          <h1 style="color: #FFC800; margin-bottom: 8px;">ENGINEERING DAY 2026</h1>
+          <h1 style="color: #FFC800; margin-bottom: 8px;">ENGINEER'S DAY 2026</h1>
           <p style="color: #00D9FF; font-weight: bold;">14th & 15th September 2026</p>
           <p>Hello <strong>${studentName}</strong>,</p>
           <p>Your student account has been created successfully. You can now log in, explore official events, and submit your registrations.</p>
@@ -75,7 +75,7 @@ class EmailService {
             <li>Scan the official UPI QR code and complete payment</li>
             <li>Upload your payment screenshot with UTR number</li>
           </ol>
-          <p style="margin-top: 24px; color: #D0D5DC;">— Engineering Day Organizing Committee</p>
+          <p style="margin-top: 24px; color: #D0D5DC;">— Engineer's Day Organizing Committee</p>
         </div>
       `,
     });

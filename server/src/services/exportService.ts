@@ -78,7 +78,7 @@ export class ExportService {
     const data = await this.getFilteredRegistrations(filters);
 
     const workbook = new ExcelJS.Workbook();
-    workbook.creator = 'Engineering Day 2026 Admin Portal';
+    workbook.creator = "Engineer's Day 2026 Admin Portal";
     workbook.created = new Date();
 
     const worksheet = workbook.addWorksheet('Registrations', {

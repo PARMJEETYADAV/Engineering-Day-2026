@@ -72,7 +72,7 @@ export class EsportsService {
    */
   async generateTeamsExcel(teams: any[]): Promise<Buffer> {
     const workbook = new ExcelJS.Workbook();
-    workbook.creator = 'Engineering Day 2026';
+    workbook.creator = "Engineer's Day 2026";
     workbook.created = new Date();
 
     const worksheet = workbook.addWorksheet('E-Sports Teams');

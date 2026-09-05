@@ -22,7 +22,7 @@ services:
       - key: DEFAULT_UPI_ID
         value: engineeringday2026@upi
       - key: DEFAULT_UPI_NAME
-        value: Engineering Day 2026 Organizers
+        value: Engineer's Day 2026 Organizers
       - key: MAX_FILE_SIZE_MB
         value: 5
 

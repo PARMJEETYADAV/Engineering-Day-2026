@@ -88,7 +88,7 @@ export const RegistrationDetailPage: React.FC = () => {
           <div className="no-print p-6 rounded-lg bg-[#00D9FF]/10 border-2 border-[#00D9FF] shadow-neon-cyan space-y-3 text-center">
             <CheckCircle2 className="w-10 h-10 text-[#00D9FF] mx-auto animate-bounce" />
             <div className="font-tech text-xs text-[#FFC800] font-bold uppercase">
-              ENGINEERING DAY 2026
+              ENGINEER'S DAY 2026
             </div>
             <h2 className="font-anton text-3xl text-white tracking-wide">
               REGISTRATION SUBMITTED

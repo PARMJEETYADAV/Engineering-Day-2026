@@ -368,7 +368,7 @@ export class AuthController {
 
         emailService.sendEmail({
           to: user.email,
-          subject: 'Password Reset Request - Engineering Day 2026',
+          subject: "Password Reset Request - Engineer's Day 2026",
           html: `
             <div style="font-family: Arial, sans-serif; background-color: #010914; color: #FFFFFF; padding: 24px; border-radius: 8px;">
               <h2 style="color: #FFC800;">Password Reset Request</h2>

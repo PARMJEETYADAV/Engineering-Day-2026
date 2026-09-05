@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret_jwt_key_eng26_replace_in_prod';
 
 async function runTests() {
-  console.log('🧪 Starting Engineering Day 2026 Test Suite...\n');
+  console.log("🧪 Starting Engineer's Day 2026 Test Suite...\n");
   let passedCount = 0;
   let failedCount = 0;
 

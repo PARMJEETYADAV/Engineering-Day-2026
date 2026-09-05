@@ -36,7 +36,7 @@ export class PaymentController {
         success: true,
         config: {
           upiId: configMap.payment_upi_id || 'engineeringday2026@upi',
-          accountName: configMap.payment_account_name || 'Engineering Day 2026 Organizers',
+          accountName: configMap.payment_account_name || "Engineer's Day 2026 Organizers",
           qrCodeUrl: configMap.payment_qr_code || '/uploads/qr_codes/default_qr.jpeg',
           instructions: configMap.payment_instructions || 'Scan QR and pay through UPI.',
         },

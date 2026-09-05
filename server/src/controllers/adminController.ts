@@ -679,7 +679,7 @@ export class AdminController {
         data: {
           name: name.trim(),
           slug,
-          description: description || `${name.trim()} event at Engineering Day 2026.`,
+          description: description || `${name.trim()} event at Engineer's Day 2026.`,
           category,
           day,
           date: eventDate,

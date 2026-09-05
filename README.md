@@ -1,6 +1,6 @@
-# ENGINEERING DAY 2026 — Official University Portal
+# ENGINEER'S DAY 2026 — Official University Portal
 
-A full-stack web application for **Engineering Day 2026** (14th & 15th September 2026). Inspired by the official futuristic event poster, this portal provides a complete registration, manual UPI/QR payment verification, student admission pass generator, and administrative control center for university symposiums.
+A full-stack web application for **Engineer's Day 2026** (14th & 15th September 2026). Inspired by the official futuristic event poster, this portal provides a complete registration, manual UPI/QR payment verification, student admission pass generator, and administrative control center for university symposiums.
 
 ---
 
@@ -80,7 +80,7 @@ ADMIN_EMAIL=admin@engineeringday2026.edu
 ADMIN_PASSWORD=AdminPass#2026!
 CORS_ORIGIN=http://localhost:5173
 DEFAULT_UPI_ID=engineeringday2026@upi
-DEFAULT_UPI_NAME=Engineering Day 2026 Organizers
+DEFAULT_UPI_NAME=Engineer's Day 2026 Organizers
 MAX_FILE_SIZE_MB=5
 ```
 

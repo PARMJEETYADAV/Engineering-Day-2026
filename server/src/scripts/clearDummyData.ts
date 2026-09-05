@@ -5,7 +5,7 @@ import path from 'path';
 const prisma = new PrismaClient();
 
 async function clearDummyData() {
-  console.log('🧹 Initializing Database Cleanup for Engineering Day 2026...\n');
+  console.log("🧹 Initializing Database Cleanup for Engineer's Day 2026...\n");
 
   try {
     // 1. Audit current counts

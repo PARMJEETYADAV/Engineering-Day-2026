@@ -9,7 +9,7 @@ dotenv.config();
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Starting database seed for Engineering Day 2026...');
+  console.log("🌱 Starting database seed for Engineer's Day 2026...");
 
   // 1. Admin Account Seed
   const adminEmail = process.env.ADMIN_EMAIL || 'admin@engineeringday2026.edu';
@@ -148,7 +148,7 @@ async function main() {
 
   const defaultSettings = [
     { key: 'payment_upi_id', value: process.env.DEFAULT_UPI_ID || 'engineeringday2026@upi' },
-    { key: 'payment_account_name', value: process.env.DEFAULT_UPI_NAME || 'Engineering Day 2026 Organizers' },
+    { key: 'payment_account_name', value: process.env.DEFAULT_UPI_NAME || "Engineer's Day 2026 Organizers" },
     { key: 'payment_qr_code', value: qrDefaultFile },
     {
       key: 'payment_instructions',
@@ -184,7 +184,7 @@ async function main() {
   // 4. Seed FAQs
   const faqs = [
     {
-      question: 'How do I register for Engineering Day 2026?',
+      question: "How do I register for Engineer's Day 2026?",
       answer: 'Create a student account with your name, email, mobile number, course, and semester. Once logged in, choose your desired event(s), pay via the provided UPI QR code, and submit your payment screenshot along with the UTR number.',
       category: 'REGISTRATION',
       order: 1,

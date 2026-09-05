@@ -107,7 +107,7 @@ app.use(
 app.get('/api/health', (_req: Request, res: Response) => {
   res.status(200).json({
     status: 'HEALTHY',
-    service: 'Engineering Day 2026 Registration Portal API',
+    service: "Engineer's Day 2026 Registration Portal API",
     security: 'ACTIVE',
     timestamp: new Date().toISOString(),
     eventDates: '14th & 15th September 2026',
@@ -156,7 +156,7 @@ import { ensureDatabaseInitialized } from './utils/initDatabase';
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, async () => {
-    console.log(`🚀 Engineering Day 2026 API server running on port ${PORT}`);
+    console.log(`🚀 Engineer's Day 2026 API server running on port ${PORT}`);
     console.log(`🌐 Base URL: http://localhost:${PORT}`);
     console.log(`📅 Event Dates: 14th & 15th September 2026`);
     await ensureDatabaseInitialized();
