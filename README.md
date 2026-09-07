@@ -100,7 +100,7 @@ This seeds:
   2. `BLIND CODING COMPETITION` (₹49)
   3. `QUIZ COMPETITION` (Free Entry)
 - **Day 2 Events**:
-  4. `CULTURAL PERFORMANCE` (₹49)
+  4. `CULTURAL PERFORMANCE` (Free Entry)
 - System settings and default QR code path (`Qr Code For Payment.jpeg`).
 
 ### 5. Run Development Servers

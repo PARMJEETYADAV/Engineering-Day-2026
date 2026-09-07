@@ -104,10 +104,10 @@ export async function ensureDatabaseInitialized() {
           startTime: '02:00 PM',
           endTime: '04:30 PM',
           venue: defaultVenue,
-          registrationFee: 49,
+          registrationFee: 0,
           maxParticipants: 50,
           isRegistrationOpen: true,
-          requiresPayment: true,
+          requiresPayment: false,
           isTeamEvent: false,
           minTeamSize: 1,
           maxTeamSize: 6,
@@ -121,7 +121,7 @@ export async function ensureDatabaseInitialized() {
       console.log(`📅 Auto-seeded 4 standard competition events`);
     }
 
-    // Always ensure Free Fire and Prize Distribution are completely deleted and Quiz is free in existing DBs
+    // Always ensure Free Fire and Prize Distribution are completely deleted and Quiz/Cultural are free in existing DBs
     await prisma.event.deleteMany({
       where: {
         OR: [
@@ -134,7 +134,9 @@ export async function ensureDatabaseInitialized() {
     }).catch(() => {});
 
     await prisma.event.updateMany({
-      where: { slug: 'quiz' },
+      where: {
+        slug: { in: ['quiz', 'cultural-performance'] },
+      },
       data: {
         registrationFee: 0,
         requiresPayment: false,
