@@ -21,16 +21,6 @@ export const EventScheduleSection: React.FC<EventScheduleProps> = ({ events }) =
       desc: 'Compete in an exciting BGMI tournament and showcase your gaming skills, teamwork and strategy.',
     },
     {
-      name: 'E-SPORTS — FREE FIRE',
-      slug: 'free-fire',
-      fee: '₹49 PER MEMBER',
-      isFree: false,
-      time: '02:00 PM - 05:00 PM',
-      venue: 'Apex University Auditorium, VT Road, Mansarovar',
-      category: 'ESPORTS',
-      desc: 'Battle it out in a competitive Free Fire tournament and prove your gaming skills.',
-    },
-    {
       name: 'BLIND CODING COMPETITION',
       slug: 'blind-coding',
       fee: '₹49',

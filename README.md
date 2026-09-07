@@ -97,11 +97,10 @@ This seeds:
 - **Admin account**: `admin@engineeringday2026.edu` / `AdminPass#2026!`
 - **Day 1 Events**:
   1. `E-SPORTS — BGMI` (₹49)
-  2. `E-SPORTS — FREE FIRE` (₹49)
-  3. `BLIND CODING COMPETITION` (₹49)
-  4. `QUIZ COMPETITION` (Free Entry)
+  2. `BLIND CODING COMPETITION` (₹49)
+  3. `QUIZ COMPETITION` (Free Entry)
 - **Day 2 Events**:
-  5. `CULTURAL PERFORMANCE` (Free Entry)
+  4. `CULTURAL PERFORMANCE` (₹49)
 - System settings and default QR code path (`Qr Code For Payment.jpeg`).
 
 ### 5. Run Development Servers
@@ -126,9 +125,9 @@ Visit **`http://localhost:5173`** in your browser.
 
 ---
 
-## 🎮 Dedicated E-Sports Team Registration Module (BGMI & Free Fire)
+## 🎮 Dedicated E-Sports Team Registration Module (BGMI)
 
-An integrated, team-based competition engine built specifically for BGMI and Free Fire:
+An integrated, team-based competition engine built specifically for BGMI:
 - **Team Size**: 1 to 4 players (1: Captain only, 2: Captain + 1, 3: Captain + 2, 4: Captain + 3).
 - **Team Captain**: The logged-in student who creates the team automatically becomes the Team Captain. Profile information (Full Name, Email, Mobile, Course, Semester, Roll Number) is auto-populated.
 - **Dynamic Fee Calculation**: Strictly calculated on the backend as **`Number of Members × ₹49`**:
@@ -136,7 +135,7 @@ An integrated, team-based competition engine built specifically for BGMI and Fre
   - 2 Members = **₹98**
   - 3 Members = **₹147**
   - 4 Members = **₹196**
-- **In-Game Credentials**: Dynamic collection and validation of **In-Game Name (IGN)** and **Game UID** (BGMI Player ID or Free Fire UID) for all players.
+- **In-Game Credentials**: Dynamic collection and validation of **In-Game Name (IGN)** and **Game UID** (BGMI Player ID) for all players.
 - **Payment & Storage**: University UPI QR code, UTR submission, and screenshot upload.
 - **Team Locking**: Upon manual admin approval, the team is stamped with `TEAM LOCKED` to freeze rosters.
 - **Admin Management & Export**: Search, filter by game/status, inspect complete member rosters, approve, reject (with mandatory explanation), request resubmission, and export 30-column Excel (`.xlsx`) & CSV reports.

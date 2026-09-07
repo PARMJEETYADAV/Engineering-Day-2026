@@ -58,7 +58,7 @@ export const StudentDashboardPage: React.FC = () => {
                 className="px-6 py-3 bg-[#00D9FF] hover:bg-[#00BFFF] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-cyan transition-all flex items-center space-x-2"
               >
                 <Gamepad2 className="w-4 h-4" />
-                <span>REGISTER FOR E-SPORTS (BGMI / FF)</span>
+                <span>REGISTER FOR E-SPORTS (BGMI)</span>
               </Link>
               <Link
                 to="/student/register-event"
@@ -149,7 +149,7 @@ export const StudentDashboardPage: React.FC = () => {
             <div className="hud-card p-8 rounded text-center space-y-3 border border-white/10">
               <Gamepad2 className="w-10 h-10 text-[#8594A6] mx-auto opacity-50" />
               <p className="font-tech text-xs text-[#8594A6]">
-                You haven't registered an E-Sports squad yet for BGMI or Free Fire.
+                You haven't registered an E-Sports squad yet for BGMI.
               </p>
               <Link
                 to="/student/esports"
@@ -171,7 +171,7 @@ export const StudentDashboardPage: React.FC = () => {
                     <div className="space-y-1">
                       <div className="flex items-center space-x-2">
                         <span className="px-2.5 py-0.5 rounded bg-[#FFC800]/20 text-[#FFC800] font-tech text-xs font-bold border border-[#FFC800]/30">
-                          {team.game === 'BGMI' ? 'BGMI' : 'FREE FIRE'}
+                          {team.game}
                         </span>
                         <h3 className="font-anton text-2xl sm:text-3xl text-white tracking-wide">
                           {team.teamName}

@@ -35,8 +35,7 @@ export const TeamBuilderPage: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const gameParam = searchParams.get('game')?.toUpperCase() === 'FREE_FIRE' ? 'FREE_FIRE' : 'BGMI';
-  const game = gameParam as 'BGMI' | 'FREE_FIRE';
+  const game = 'BGMI';
 
   const [step, setStep] = useState<1 | 2 | 3>(1); // 1: Team & Members, 2: Payment & Proof, 3: Confirmation
   const [teamName, setTeamName] = useState('');
@@ -71,8 +70,8 @@ export const TeamBuilderPage: React.FC = () => {
   const feePerMember = 49;
   const totalAmount = totalMemberCount * feePerMember;
 
-  const gameUidLabel = game === 'BGMI' ? 'BGMI Player ID' : 'Free Fire UID';
-  const gameUidPlaceholder = game === 'BGMI' ? 'e.g. 5123456789' : 'e.g. 1234567890';
+  const gameUidLabel = 'BGMI Player ID';
+  const gameUidPlaceholder = 'e.g. 5123456789';
 
   const handleAddMember = () => {
     if (totalMemberCount >= 4) return;
@@ -247,7 +246,7 @@ export const TeamBuilderPage: React.FC = () => {
             E-SPORTS <span className="text-[#FFC800]">TEAM REGISTRATION</span>
           </h1>
           <p className="font-oswald text-xs sm:text-sm text-[#00D9FF] tracking-wider uppercase font-bold">
-            {game === 'BGMI' ? 'BATTLEGROUNDS MOBILE INDIA' : 'FREE FIRE MAX'} • SQUAD BUILDING HUB
+            BATTLEGROUNDS MOBILE INDIA • SQUAD BUILDING HUB
           </p>
 
           {/* 4-Step HUD Progress Bar */}
@@ -323,14 +322,14 @@ export const TeamBuilderPage: React.FC = () => {
                       className="w-full p-2.5 bg-[#010914] border border-[#00D9FF]/30 rounded text-white focus:outline-none focus:border-[#00D9FF]"
                     />
                     <span className="text-[10px] text-[#8594A6] mt-1 block">
-                      3-50 characters. Must be unique for {game}.
+                      3-50 characters. Must be unique for BGMI.
                     </span>
                   </div>
 
                   <div>
                     <label className="text-[#8594A6] uppercase block mb-1">SELECTED TOURNAMENT</label>
                     <div className="w-full p-2.5 bg-[#000510] border border-white/10 rounded font-bold text-[#FFC800] flex items-center justify-between">
-                      <span>{game === 'BGMI' ? 'BGMI (Battlegrounds Mobile India)' : 'Free Fire Max'}</span>
+                      <span>BGMI (Battlegrounds Mobile India)</span>
                       <span className="text-xs bg-[#FFC800]/20 text-[#FFC800] px-2 py-0.5 rounded">₹49/Player</span>
                     </div>
                   </div>

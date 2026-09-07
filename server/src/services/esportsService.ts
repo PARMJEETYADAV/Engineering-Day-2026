@@ -58,7 +58,7 @@ export class EsportsService {
    * Calculates fee strictly from database
    */
   async calculateExpectedFee(game: 'BGMI' | 'FREE_FIRE', memberCount: number): Promise<{ feePerMember: number; totalAmount: number }> {
-    const eventSlug = game === 'BGMI' ? 'bgmi' : 'free-fire';
+    const eventSlug = 'bgmi';
     const event = await prisma.event.findUnique({ where: { slug: eventSlug } });
     const feePerMember = event ? event.registrationFee : 49;
     return {

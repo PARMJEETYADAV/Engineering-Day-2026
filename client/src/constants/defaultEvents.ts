@@ -20,28 +20,6 @@ export const DEFAULT_EVENTS: EventItem[] = [
     isTeamEvent: true,
     minTeamSize: 1,
     maxTeamSize: 4,
-
-  },
-  {
-    id: 'evt-free-fire',
-    name: 'E-SPORTS — FREE FIRE',
-    slug: 'free-fire',
-    description: 'Battle it out in a competitive Free Fire tournament and prove your gaming skills.',
-    category: 'ESPORTS',
-    day: 'DAY_1',
-    date: '14 September 2026',
-    startTime: '02:00 PM',
-    endTime: '05:00 PM',
-    venue: 'Apex University Auditorium, VT Road, Mansarovar',
-    registrationFee: 49,
-    maxParticipants: 100,
-    isRegistrationOpen: true,
-    requiresPayment: true,
-    rules: '1. Squad registration (1-4 players).\n2. Mobile devices only.\n3. Room credentials shared 15 minutes before match start.\n4. Fair play policy enforced.',
-    isTeamEvent: true,
-    minTeamSize: 1,
-    maxTeamSize: 4,
-
   },
   {
     id: 'evt-blind-coding',

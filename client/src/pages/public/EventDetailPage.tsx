@@ -52,9 +52,9 @@ export const EventDetailPage: React.FC = () => {
 
   const handleRegisterClick = () => {
     const isEsports =
-      event.category === 'ESPORTS' || event.slug === 'bgmi' || event.slug === 'free-fire';
+      event.category === 'ESPORTS' || event.slug === 'bgmi';
     const destination = isEsports
-      ? `/student/esports/create?game=${event.slug.includes('free') ? 'FREE_FIRE' : 'BGMI'}`
+      ? `/student/esports/create?game=BGMI`
       : `/student/register-event?eventId=${event.id}`;
 
     if (!user) {

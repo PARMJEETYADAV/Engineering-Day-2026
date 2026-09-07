@@ -21,8 +21,8 @@ export class EsportsController {
       const { teamName, game, captainIgn, captainGameUid, members } = req.body;
 
       // Validate Game
-      if (!game || !['BGMI', 'FREE_FIRE'].includes(game)) {
-        res.status(400).json({ success: false, message: 'Valid game (BGMI or FREE_FIRE) is required.' });
+      if (!game || game !== 'BGMI') {
+        res.status(400).json({ success: false, message: 'Valid game (BGMI) is required.' });
         return;
       }
 
@@ -39,8 +39,7 @@ export class EsportsController {
       }
 
       if (!captainGameUid || !captainGameUid.trim()) {
-        const uidLabel = game === 'BGMI' ? 'BGMI Player ID' : 'Free Fire UID';
-        res.status(400).json({ success: false, message: `Captain ${uidLabel} is required.` });
+        res.status(400).json({ success: false, message: 'Captain BGMI Player ID is required.' });
         return;
       }
 

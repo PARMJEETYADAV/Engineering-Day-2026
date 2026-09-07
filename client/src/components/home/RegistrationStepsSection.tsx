@@ -15,7 +15,7 @@ export const RegistrationStepsSection: React.FC = () => {
       step: '02',
       title: 'SELECT EVENT',
       icon: CheckSquare,
-      desc: 'Choose from BGMI, Free Fire, Blind Coding, Quiz, and Cultural performances. Multi-event participation is supported.',
+      desc: 'Choose from BGMI, Blind Coding, Quiz, and Cultural performances. Multi-event participation is supported.',
       highlightColor: '#008CFF',
     },
     {

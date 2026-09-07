@@ -320,7 +320,7 @@ export const PaymentSettingsPage: React.FC = () => {
             </div>
 
             <p className="text-xs text-[#D0D5DC] font-tech leading-relaxed">
-              This action will permanently delete all student registrations, BGMI/Free Fire teams, payments, and uploaded screenshot files.
+              This action will permanently delete all student registrations, BGMI teams, payments, and uploaded screenshot files.
             </p>
 
             <div className="p-3 bg-[#010914] border border-[#FF4444]/30 rounded text-xs font-tech text-[#FFC800]">

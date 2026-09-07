@@ -185,13 +185,13 @@ export const EventsPage: React.FC = () => {
                     {ev.isRegistrationOpen && ev.category !== 'CEREMONY' && (
                       <Link
                         to={
-                          ev.category === 'ESPORTS' || ev.slug === 'bgmi' || ev.slug === 'free-fire'
-                            ? `/student/esports/create?game=${ev.slug.includes('free') ? 'FREE_FIRE' : 'BGMI'}`
+                          ev.category === 'ESPORTS' || ev.slug === 'bgmi'
+                            ? `/student/esports/create?game=BGMI`
                             : `/student/register-event?eventId=${ev.id}`
                         }
                         className="flex-1 py-2.5 text-center font-anton text-xs tracking-wider text-[#010914] bg-[#FFC800] hover:bg-[#E5B400] rounded shadow-neon-yellow transition-all"
                       >
-                        {ev.category === 'ESPORTS' || ev.slug === 'bgmi' || ev.slug === 'free-fire'
+                        {ev.category === 'ESPORTS' || ev.slug === 'bgmi'
                           ? 'BUILD SQUAD'
                           : 'REGISTER'}
                       </Link>

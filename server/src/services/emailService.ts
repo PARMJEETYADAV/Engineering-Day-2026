@@ -71,7 +71,7 @@ class EmailService {
           <p>Your student account has been created successfully. You can now log in, explore official events, and submit your registrations.</p>
           <p>Next steps:</p>
           <ol>
-            <li>Select an event (BGMI, Free Fire, Blind Coding, Quiz, Cultural Performance)</li>
+            <li>Select an event (BGMI, Blind Coding, Quiz, Cultural Performance)</li>
             <li>Scan the official UPI QR code and complete payment</li>
             <li>Upload your payment screenshot with UTR number</li>
           </ol>

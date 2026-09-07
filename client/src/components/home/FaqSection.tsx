@@ -10,8 +10,8 @@ export const FaqSection: React.FC = () => {
       a: 'First, create a student account using your email and mobile number. Once logged in, select the events you wish to participate in, scan the official university UPI QR code to complete your payment, and upload your payment screenshot along with the 12-digit UTR number.',
     },
     {
-      q: 'What is the registration fee for BGMI and Free Fire?',
-      a: 'The entry fee for both BGMI and Free Fire is ₹49 per participant/member slot.',
+      q: 'What is the registration fee for BGMI?',
+      a: 'The entry fee for the BGMI tournament is ₹49 per participant/member slot.',
     },
     {
       q: 'What is the registration fee for Blind Coding?',

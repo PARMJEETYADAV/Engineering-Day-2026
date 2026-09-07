@@ -121,7 +121,7 @@ export const HeroSection: React.FC = () => {
             </div>
             <div>
               <div className="font-oswald text-xs tracking-wider text-white">E-SPORTS ARENA</div>
-              <div className="font-tech text-[10px] text-[#8594A6]">BGMI & Free Fire</div>
+              <div className="font-tech text-[10px] text-[#8594A6]">BGMI Battle Royale</div>
             </div>
           </div>
 

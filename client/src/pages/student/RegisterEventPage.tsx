@@ -46,12 +46,10 @@ export const RegisterEventPage: React.FC = () => {
     if (selectedEvent) {
       const isEsports =
         selectedEvent.category === 'ESPORTS' ||
-        selectedEvent.slug === 'bgmi' ||
-        selectedEvent.slug === 'free-fire';
+        selectedEvent.slug === 'bgmi';
 
       if (isEsports) {
-        const gameParam = selectedEvent.slug.includes('free') ? 'FREE_FIRE' : 'BGMI';
-        navigate(`/student/esports/create?game=${gameParam}`, { replace: true });
+        navigate('/student/esports/create?game=BGMI', { replace: true });
       }
     }
   }, [selectedEvent, navigate]);

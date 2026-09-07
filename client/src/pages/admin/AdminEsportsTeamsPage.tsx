@@ -108,7 +108,7 @@ export const AdminEsportsTeamsPage: React.FC = () => {
             </h1>
           </div>
           <p className="font-tech text-xs text-[#8594A6] mt-1">
-            BGMI & Free Fire Squad Verification, Roster Inspection, and Tournament Ledgers
+            BGMI Squad Verification, Roster Inspection, and Tournament Ledgers
           </p>
         </div>
 
@@ -133,14 +133,10 @@ export const AdminEsportsTeamsPage: React.FC = () => {
 
       {/* KPI Stats Counters */}
       {stats && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           <div className="hud-card p-4 rounded border border-[#00D9FF]/30">
-            <span className="text-[10px] text-[#8594A6] uppercase block font-tech">TOTAL BGMI</span>
+            <span className="text-[10px] text-[#8594A6] uppercase block font-tech">TOTAL BGMI TEAMS</span>
             <div className="font-anton text-2xl text-white mt-1">{stats.totalBgmiTeams}</div>
-          </div>
-          <div className="hud-card p-4 rounded border border-[#FFC800]/30">
-            <span className="text-[10px] text-[#8594A6] uppercase block font-tech">TOTAL FREE FIRE</span>
-            <div className="font-anton text-2xl text-[#FFC800] mt-1">{stats.totalFreeFireTeams}</div>
           </div>
           <div className="hud-card p-4 rounded border border-[#00D9FF]/30">
             <span className="text-[10px] text-[#8594A6] uppercase block font-tech">PENDING REVIEW</span>
@@ -200,7 +196,6 @@ export const AdminEsportsTeamsPage: React.FC = () => {
             >
               <option value="ALL">All Games</option>
               <option value="BGMI">BGMI</option>
-              <option value="FREE_FIRE">Free Fire</option>
             </select>
           </div>
 

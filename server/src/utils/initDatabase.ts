@@ -57,25 +57,6 @@ export async function ensureDatabaseInitialized() {
           rules: '1. Squad registration (1-4 players).\n2. BGMI mobile only.\n3. Match room ID and password shared 15 mins prior.\n4. Decisions of tournament admins are final.',
         },
         {
-          name: 'E-SPORTS — FREE FIRE',
-          slug: 'free-fire',
-          description: 'Battle it out in a competitive Free Fire tournament and prove your gaming skills.',
-          category: 'ESPORTS',
-          day: 'DAY_1',
-          date: '14 September 2026',
-          startTime: '02:00 PM',
-          endTime: '05:00 PM',
-          venue: defaultVenue,
-          registrationFee: 49,
-          maxParticipants: 100,
-          isRegistrationOpen: true,
-          requiresPayment: true,
-          isTeamEvent: true,
-          minTeamSize: 1,
-          maxTeamSize: 4,
-          rules: '1. Squad registration (1-4 players).\n2. Mobile devices only.\n3. Room credentials shared 15 minutes before match start.\n4. Fair play policy enforced.',
-        },
-        {
           name: 'BLIND CODING COMPETITION',
           slug: 'blind-coding',
           description: 'Test your programming logic and problem-solving skills under challenging conditions.',
@@ -120,13 +101,13 @@ export async function ensureDatabaseInitialized() {
           category: 'CULTURAL',
           day: 'DAY_2',
           date: '15 September 2026',
-          startTime: '10:00 AM',
-          endTime: '01:30 PM',
+          startTime: '02:00 PM',
+          endTime: '04:30 PM',
           venue: defaultVenue,
-          registrationFee: 0,
-          maxParticipants: 150,
+          registrationFee: 49,
+          maxParticipants: 50,
           isRegistrationOpen: true,
-          requiresPayment: false,
+          requiresPayment: true,
           isTeamEvent: false,
           minTeamSize: 1,
           maxTeamSize: 6,
@@ -137,13 +118,15 @@ export async function ensureDatabaseInitialized() {
       for (const ev of events) {
         await prisma.event.create({ data: ev });
       }
-      console.log(`📅 Auto-seeded 5 standard competition events`);
+      console.log(`📅 Auto-seeded 4 standard competition events`);
     }
 
-    // Always ensure Prize Distribution is completely deleted and Quiz is free in existing DBs
+    // Always ensure Free Fire and Prize Distribution are completely deleted and Quiz is free in existing DBs
     await prisma.event.deleteMany({
       where: {
         OR: [
+          { slug: 'free-fire' },
+          { name: { contains: 'FREE FIRE' } },
           { slug: 'prize-distribution' },
           { name: { contains: 'PRIZE DISTRIBUTION' } },
         ],
