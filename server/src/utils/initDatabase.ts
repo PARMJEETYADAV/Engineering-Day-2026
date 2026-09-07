@@ -158,6 +158,19 @@ export async function ensureDatabaseInitialized() {
       },
     }).catch(() => {});
 
+    // Always ensure UPI settings point to official QR and UPI ID
+    await prisma.systemSetting.upsert({
+      where: { key: 'payment_upi_id' },
+      update: { value: '7541841303@ptsbi' },
+      create: { key: 'payment_upi_id', value: '7541841303@ptsbi' },
+    }).catch(() => {});
+
+    await prisma.systemSetting.upsert({
+      where: { key: 'payment_qr_code' },
+      update: { value: '/uploads/qr_codes/default_qr.jpeg' },
+      create: { key: 'payment_qr_code', value: '/uploads/qr_codes/default_qr.jpeg' },
+    }).catch(() => {});
+
     // 4. Ensure System Settings exist
     const settingsCount = await prisma.systemSetting.count();
     if (settingsCount === 0) {
@@ -166,8 +179,11 @@ export async function ensureDatabaseInitialized() {
         { key: 'contact_email', value: 'parmjeetyadav1230@gmail.com', description: 'Admin Email' },
         { key: 'contact_phone', value: '+91 94678 43851', description: 'Coordinator Contact' },
         { key: 'contact_venue', value: 'Apex University Auditorium, VT Road, Mansarovar', description: 'Event Location' },
-        { key: 'default_upi_id', value: 'engineeringday2026@upi', description: 'Default UPI ID' },
+        { key: 'default_upi_id', value: '7541841303@ptsbi', description: 'Default UPI ID' },
+        { key: 'payment_upi_id', value: '7541841303@ptsbi', description: 'Payment UPI ID' },
+        { key: 'payment_qr_code', value: '/uploads/qr_codes/default_qr.jpeg', description: 'Payment QR Code' },
         { key: 'default_upi_name', value: "Apex Engineer's Day 2026", description: 'Default UPI Name' },
+        { key: 'payment_account_name', value: "Engineer's Day 2026 Organizers", description: 'Payment Account Name' },
       ];
       for (const s of defaultSettings) {
         await prisma.systemSetting.create({ data: s });

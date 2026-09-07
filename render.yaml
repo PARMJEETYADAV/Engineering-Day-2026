@@ -20,7 +20,7 @@ services:
       - key: CORS_ORIGIN
         value: "*"
       - key: DEFAULT_UPI_ID
-        value: engineeringday2026@upi
+        value: 7541841303@ptsbi
       - key: DEFAULT_UPI_NAME
         value: Engineer's Day 2026 Organizers
       - key: MAX_FILE_SIZE_MB

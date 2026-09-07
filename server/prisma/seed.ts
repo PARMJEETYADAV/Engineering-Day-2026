@@ -147,7 +147,7 @@ async function main() {
   const qrDefaultFile = '/uploads/qr_codes/default_qr.jpeg';
 
   const defaultSettings = [
-    { key: 'payment_upi_id', value: process.env.DEFAULT_UPI_ID || 'engineeringday2026@upi' },
+    { key: 'payment_upi_id', value: process.env.DEFAULT_UPI_ID || '7541841303@ptsbi' },
     { key: 'payment_account_name', value: process.env.DEFAULT_UPI_NAME || "Engineer's Day 2026 Organizers" },
     { key: 'payment_qr_code', value: qrDefaultFile },
     {

@@ -644,7 +644,7 @@ export const TeamBuilderPage: React.FC = () => {
                 <div className="space-y-0.5">
                   <span className="text-[10px] text-[#8594A6] uppercase block font-tech">OFFICIAL UPI ID</span>
                   <span className="font-mono text-xs text-[#00D9FF] font-bold">
-                    {paymentConfig?.upiId || 'engineeringday2026@upi'}
+                    {paymentConfig?.upiId || '7541841303@ptsbi'}
                   </span>
                 </div>
                 <button

@@ -288,7 +288,7 @@ export const PaymentPage: React.FC = () => {
                     </span>
                     <div className="flex items-center space-x-2">
                       <div className="px-3 py-1.5 bg-[#000510] border border-[#00D9FF]/40 rounded font-mono text-xs text-[#00D9FF] select-all">
-                        {paymentConfig?.upiId || 'engineeringday2026@upi'}
+                        {paymentConfig?.upiId || '7541841303@ptsbi'}
                       </div>
                       <button
                         type="button"

@@ -79,7 +79,7 @@ JWT_SECRET=supersecret_jwt_key_eng26_replace_in_prod_94ea5d4c
 ADMIN_EMAIL=admin@engineeringday2026.edu
 ADMIN_PASSWORD=AdminPass#2026!
 CORS_ORIGIN=http://localhost:5173
-DEFAULT_UPI_ID=engineeringday2026@upi
+DEFAULT_UPI_ID=7541841303@ptsbi
 DEFAULT_UPI_NAME=Engineer's Day 2026 Organizers
 MAX_FILE_SIZE_MB=5
 ```

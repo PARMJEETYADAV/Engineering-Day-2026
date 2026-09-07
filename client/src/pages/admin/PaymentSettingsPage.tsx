@@ -223,7 +223,7 @@ export const PaymentSettingsPage: React.FC = () => {
                 required
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
-                placeholder="engineeringday2026@upi"
+                placeholder="7541841303@ptsbi"
                 className="w-full p-2.5 bg-[#010914] border border-[#00D9FF]/30 rounded text-sm text-[#00D9FF] font-mono focus:outline-none focus:border-[#00D9FF]"
               />
             </div>
