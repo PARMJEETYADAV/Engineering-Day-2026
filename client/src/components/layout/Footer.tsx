@@ -12,19 +12,19 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand & Theme */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3.5">
-              <div className="relative h-13 sm:h-14 w-auto flex items-center justify-center shrink-0">
+            <div className="flex items-center space-x-2.5 sm:space-x-3.5">
+              <div className="relative h-11 sm:h-14 w-auto flex items-center justify-center shrink-0">
                 <img
                   src="/apex-logo.png"
                   alt="Apex University Official Emblem"
                   className="h-full w-auto object-contain filter drop-shadow-[0_0_12px_rgba(0,217,255,0.4)]"
                 />
               </div>
-              <div className="flex flex-col justify-center">
-                <span className="font-anton tracking-wider text-xl sm:text-2xl text-white">
+              <div className="flex flex-col justify-center min-w-0">
+                <span className="font-anton tracking-wider text-lg sm:text-2xl text-white truncate">
                   APEX <span className="text-[#00D9FF]">UNIVERSITY</span>
                 </span>
-                <span className="font-tech text-[10px] text-[#FFC800] tracking-[0.2em] font-bold uppercase mt-1">
+                <span className="font-tech text-[9px] sm:text-[10px] text-[#FFC800] tracking-[0.15em] sm:tracking-[0.2em] font-bold uppercase mt-0.5 sm:mt-1 whitespace-nowrap">
                   ENGINEER'S DAY • 2026
                 </span>
               </div>

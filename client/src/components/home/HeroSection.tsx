@@ -107,9 +107,11 @@ export const HeroSection: React.FC = () => {
             to="/admin/login"
             className="inline-flex items-center space-x-2 px-4 py-2 rounded bg-[#000510]/80 hover:bg-[#00D9FF]/10 border border-[#00D9FF]/30 text-xs font-tech text-[#8594A6] hover:text-[#00D9FF] transition-all shadow-[0_0_12px_rgba(0,217,255,0.15)] group"
           >
-            <ShieldCheck className="w-4 h-4 text-[#FFC800] group-hover:scale-110 transition-transform" />
-            <span>AUTHORIZED FACULTY & ADMIN ACCESS PORTAL</span>
-            <span className="text-[#FFC800] font-bold">➔</span>
+            <ShieldCheck className="w-4 h-4 text-[#FFC800] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-center">
+              <span className="hidden sm:inline">AUTHORIZED </span>FACULTY & ADMIN ACCESS<span className="hidden sm:inline"> PORTAL</span>
+            </span>
+            <span className="text-[#FFC800] font-bold shrink-0">➔</span>
           </Link>
         </div>
 

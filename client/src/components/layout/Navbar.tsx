@@ -27,15 +27,15 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-[#010914]/95 backdrop-blur-md border-b border-[#00D9FF]/20 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
       {/* Top micro-banner */}
-      <div className="bg-gradient-to-r from-[#000510] via-[#021326] to-[#000510] border-b border-[#00D9FF]/10 text-xs py-1 px-4">
+      <div className="bg-gradient-to-r from-[#000510] via-[#021326] to-[#000510] border-b border-[#00D9FF]/10 text-xs py-1 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-[#00D9FF]">
-            <Calendar className="w-3.5 h-3.5 text-[#FFC800]" />
-            <span className="font-tech tracking-wider text-[11px] sm:text-xs">
-              OFFICIAL UNIVERSITY EVENT • 14TH & 15TH SEPTEMBER 2026
+          <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#00D9FF] min-w-0">
+            <Calendar className="w-3.5 h-3.5 text-[#FFC800] shrink-0" />
+            <span className="font-tech tracking-wider text-[10px] sm:text-xs truncate">
+              <span className="hidden xs:inline">OFFICIAL UNIVERSITY EVENT • </span>14TH & 15TH SEPTEMBER 2026
             </span>
           </div>
-          <div className="hidden sm:flex items-center space-x-4 text-[#D0D5DC] text-[11px] font-tech">
+          <div className="hidden sm:flex items-center space-x-4 text-[#D0D5DC] text-[11px] font-tech shrink-0">
             <span className="text-[#FFC800]">TECH. COMPETE. CONQUER.</span>
             <span className="text-[#008CFF]">|</span>
             <Link
@@ -50,23 +50,23 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Main Nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo / Brand */}
-          <Link to="/" className="flex items-center space-x-3.5 group">
-            <div className="relative h-12 sm:h-14 md:h-15 w-auto flex items-center justify-center shrink-0 group-hover:scale-105 transition-all duration-300">
+          <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0">
+            <div className="relative h-11 xs:h-12 sm:h-14 md:h-15 w-auto flex items-center justify-center shrink-0 group-hover:scale-105 transition-all duration-300">
               <img
                 src="/apex-logo.png"
                 alt="Apex University Official Emblem"
-                className="h-full w-auto object-contain filter drop-shadow-[0_0_12px_rgba(0,217,255,0.4)] group-hover:drop-shadow-[0_0_18px_rgba(255,200,0,0.65)] transition-all"
+                className="h-full w-auto object-contain filter drop-shadow-[0_0_10px_rgba(0,217,255,0.4)] group-hover:drop-shadow-[0_0_16px_rgba(255,200,0,0.65)] transition-all"
               />
-              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FFC800] rounded-full border border-[#010914] shadow-[0_0_8px_#FFC800] animate-pulse" />
+              <div className="absolute -top-1 -right-1 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#FFC800] rounded-full border border-[#010914] shadow-[0_0_8px_#FFC800] animate-pulse" />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-anton tracking-wider text-lg xs:text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none truncate">
                 APEX <span className="text-[#00D9FF]">UNIVERSITY</span>
               </span>
-              <span className="font-tech text-[10px] sm:text-[11px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors leading-tight mt-1">
+              <span className="font-tech text-[9px] xs:text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors leading-tight mt-0.5 sm:mt-1 whitespace-nowrap">
                 ENGINEER'S DAY • 2026
               </span>
             </div>
@@ -152,13 +152,13 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center space-x-2">
+          <div className="flex md:hidden items-center space-x-2 shrink-0">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded border border-[#00D9FF]/30 text-[#00D9FF] hover:bg-[#00D9FF]/10 transition-colors"
+              className="p-2 rounded-lg border border-[#00D9FF]/40 text-[#00D9FF] hover:bg-[#00D9FF]/10 active:scale-95 transition-all shadow-[0_0_10px_rgba(0,217,255,0.2)]"
               aria-label="Toggle navigation"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-5 h-5 xs:w-6 xs:h-6 text-[#FFC800]" /> : <Menu className="w-5 h-5 xs:w-6 xs:h-6" />}
             </button>
           </div>
         </div>
@@ -166,7 +166,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#000510] border-b border-[#00D9FF]/30 px-4 pt-3 pb-6 space-y-4">
+        <div className="md:hidden bg-[#000510]/98 backdrop-blur-xl border-b border-[#00D9FF]/30 px-4 pt-4 pb-6 space-y-4 shadow-2xl">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
