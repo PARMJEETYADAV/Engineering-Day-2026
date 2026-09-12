@@ -83,6 +83,10 @@ export class AdminController {
         PAYMENT_PENDING: await prisma.registration.count({ where: { status: 'PAYMENT_PENDING' } }),
       };
 
+      const dbUrl = (process.env.DATABASE_URL || '').trim();
+      const isPostgres = dbUrl.startsWith('postgres://') || dbUrl.startsWith('postgresql://');
+      const dbProvider = isPostgres ? 'POSTGRESQL' : 'SQLITE';
+
       res.status(200).json({
         success: true,
         stats: {
@@ -96,6 +100,8 @@ export class AdminController {
           eventStats,
           statusBreakdown,
           recentRegistrations,
+          dbProvider,
+          isPermanent: isPostgres,
         },
       });
     } catch (error) {

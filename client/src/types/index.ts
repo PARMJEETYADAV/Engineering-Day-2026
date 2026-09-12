@@ -109,6 +109,8 @@ export interface AdminStats {
   }[];
   statusBreakdown: Record<string, number>;
   recentRegistrations: RegistrationItem[];
+  dbProvider?: string;
+  isPermanent?: boolean;
 }
 
 export interface TeamMember {
