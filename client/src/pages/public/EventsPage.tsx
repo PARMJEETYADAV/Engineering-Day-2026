@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Gamepad2, Code2, HelpCircle, Music, Trophy, Search, Filter, Calendar, MapPin, Clock } from 'lucide-react';
+import { Gamepad2, Code2, HelpCircle, Music, Trophy, Search, Filter, Calendar, MapPin, Clock, ExternalLink } from 'lucide-react';
 import api from '../../services/api';
 import { EventItem } from '../../types';
-
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 import { DEFAULT_EVENTS } from '../../constants/defaultEvents';
 
 export const EventsPage: React.FC = () => {
@@ -183,18 +183,15 @@ export const EventsPage: React.FC = () => {
                       VIEW DETAILS
                     </Link>
                     {ev.isRegistrationOpen && ev.category !== 'CEREMONY' && (
-                      <Link
-                        to={
-                          ev.category === 'ESPORTS' || ev.slug === 'bgmi'
-                            ? `/student/esports/create?game=BGMI`
-                            : `/student/register-event?eventId=${ev.id}`
-                        }
-                        className="flex-1 py-2.5 text-center font-anton text-xs tracking-wider text-[#010914] bg-[#FFC800] hover:bg-[#E5B400] rounded shadow-neon-yellow transition-all"
+                      <a
+                        href={GOOGLE_FORM_REGISTRATION_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2.5 text-center font-anton text-xs tracking-wider text-[#010914] bg-[#FFC800] hover:bg-[#E5B400] rounded shadow-neon-yellow transition-all flex items-center justify-center gap-1"
                       >
-                        {ev.category === 'ESPORTS' || ev.slug === 'bgmi'
-                          ? 'BUILD SQUAD'
-                          : 'REGISTER'}
-                      </Link>
+                        <span>REGISTER</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
                     )}
                   </div>
                 </div>

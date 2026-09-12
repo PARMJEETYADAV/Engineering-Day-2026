@@ -1,35 +1,35 @@
 import React from 'react';
-import { UserPlus, CheckSquare, QrCode, ShieldCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { UserPlus, CheckSquare, QrCode, ShieldCheck, ExternalLink } from 'lucide-react';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const RegistrationStepsSection: React.FC = () => {
   const steps = [
     {
       step: '01',
-      title: 'CREATE ACCOUNT',
+      title: 'OPEN GOOGLE FORM',
       icon: UserPlus,
-      desc: 'Register with your student email, mobile, and branch credentials to create your secure portal profile.',
+      desc: 'Click on Start Registration to open the official Google Registration Form for Engineer\'s Day 2026.',
       highlightColor: '#00D9FF',
     },
     {
       step: '02',
-      title: 'SELECT EVENT',
+      title: 'ENTER DETAILS',
       icon: CheckSquare,
-      desc: 'Choose from BGMI, Blind Coding, Quiz, and Cultural performances. Multi-event participation is supported.',
+      desc: 'Fill in your name, contact details, college/department, and select your competitive event categories.',
       highlightColor: '#008CFF',
     },
     {
       step: '03',
-      title: 'MAKE PAYMENT',
+      title: 'MAKE UPI PAYMENT',
       icon: QrCode,
-      desc: 'Scan the official university UPI QR code and transfer the exact fee using Google Pay, PhonePe, Paytm, or BHIM.',
+      desc: 'Scan the official university UPI QR code and transfer the fee for paid events (e.g. BGMI, Blind Coding).',
       highlightColor: '#FFC800',
     },
     {
       step: '04',
-      title: 'UPLOAD PROOF & GET VERIFIED',
+      title: 'SUBMIT & GET VERIFIED',
       icon: ShieldCheck,
-      desc: 'Upload your payment receipt along with the 12-digit UTR number. The admin team verifies and confirms your pass.',
+      desc: 'Submit your Google Form. The technical committee will confirm your entry and issue your event pass.',
       highlightColor: '#00D9FF',
     },
   ];
@@ -87,12 +87,15 @@ export const RegistrationStepsSection: React.FC = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link
-            to="/register"
+          <a
+            href={GOOGLE_FORM_REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-8 py-3.5 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-base tracking-wider rounded transition-all shadow-neon-yellow"
           >
-            <span>START REGISTRATION NOW</span>
-          </Link>
+            <span>START REGISTRATION (GOOGLE FORM)</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

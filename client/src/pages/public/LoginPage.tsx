@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Lock, LogIn, AlertCircle, ShieldCheck } from 'lucide-react';
+import { Mail, Lock, LogIn, AlertCircle, ShieldCheck, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -55,6 +56,23 @@ export const LoginPage: React.FC = () => {
 
         {/* Login Card */}
         <div className="hud-card p-8 rounded-lg border border-[#00D9FF]/30 shadow-neon-cyan">
+          {/* Quick Registration Direct Notice */}
+          <div className="mb-6 p-4 rounded bg-[#FFC800]/10 border border-[#FFC800]/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-[#FFC800] font-tech text-center sm:text-left">
+              <span className="font-bold block uppercase">No login required to register!</span>
+              <span className="text-[#D0D5DC] text-[11px]">Click below to fill the official Google Form directly.</span>
+            </div>
+            <a
+              href={GOOGLE_FORM_REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-xs tracking-wider rounded uppercase flex items-center gap-1 shrink-0 transition-all shadow-neon-yellow"
+            >
+              <span>REGISTER NOW</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+
           {error && (
             <div className="mb-6 p-4 rounded bg-[#FF4444]/10 border border-[#FF4444]/40 text-[#FF4444] text-xs flex items-start space-x-2">
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
@@ -122,10 +140,16 @@ export const LoginPage: React.FC = () => {
           </form>
 
           <div className="mt-6 pt-4 border-t border-white/10 text-center text-xs text-[#8594A6]">
-            New participant?{' '}
-            <Link to="/register" className="text-[#00D9FF] font-tech font-bold hover:underline">
-              Create student account
-            </Link>
+            Looking to participate in events?{' '}
+            <a
+              href={GOOGLE_FORM_REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FFC800] font-tech font-bold hover:underline inline-flex items-center gap-1"
+            >
+              <span>Register via Official Google Form</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </div>

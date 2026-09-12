@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { CheckCircle2, AlertCircle, Calendar, ShieldCheck, ArrowRight, ArrowLeft, Users, CreditCard } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Calendar, ShieldCheck, ArrowRight, ArrowLeft, Users, CreditCard, ExternalLink } from 'lucide-react';
 import api from '../../services/api';
 import { EventItem } from '../../types';
 import { useAuth } from '../../context/AuthContext';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const RegisterEventPage: React.FC = () => {
   const { user } = useAuth();
@@ -104,6 +105,27 @@ export const RegisterEventPage: React.FC = () => {
           <p className="font-oswald text-xs sm:text-sm text-[#8594A6] tracking-wider uppercase">
             SELECT EVENT • CONFIRM DETAILS • INITIALIZE PAYMENT
           </p>
+        </div>
+
+        {/* Direct Google Form Callout */}
+        <div className="hud-card p-5 rounded-lg border-2 border-[#FFC800]/50 bg-[#FFC800]/5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-neon-yellow">
+          <div>
+            <span className="font-anton text-base text-[#FFC800] tracking-wide block">
+              RECOMMENDED: REGISTER VIA OFFICIAL GOOGLE FORM
+            </span>
+            <p className="text-xs text-[#D0D5DC] font-tech mt-0.5">
+              Fill out the unified Google Form directly with your details and payment reference. No login required.
+            </p>
+          </div>
+          <a
+            href={GOOGLE_FORM_REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2.5 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-xs tracking-wider rounded uppercase flex items-center gap-1.5 shrink-0 transition-all shadow-neon-yellow"
+          >
+            <span>OPEN GOOGLE FORM</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
 
         {/* Step Progress Bar */}

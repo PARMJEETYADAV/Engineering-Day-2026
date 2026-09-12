@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { User, Calendar, PlusCircle, CheckCircle2, Clock, AlertTriangle, XCircle, ArrowRight, Download, CreditCard, ShieldCheck, Gamepad2, Lock, Shield, Trophy } from 'lucide-react';
+import { User, Calendar, PlusCircle, CheckCircle2, Clock, AlertTriangle, XCircle, ArrowRight, Download, CreditCard, ShieldCheck, Gamepad2, Lock, Shield, Trophy, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../services/api';
 import { RegistrationItem, TeamItem } from '../../types';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const StudentDashboardPage: React.FC = () => {
   const { user } = useAuth();
@@ -53,19 +54,21 @@ export const StudentDashboardPage: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={GOOGLE_FORM_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-yellow transition-all flex items-center space-x-2"
+              >
+                <span>REGISTER ON GOOGLE FORM</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
               <Link
                 to="/student/esports"
-                className="px-6 py-3 bg-[#00D9FF] hover:bg-[#00BFFF] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-cyan transition-all flex items-center space-x-2"
+                className="px-5 py-3 bg-[#00D9FF] hover:bg-[#00BFFF] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-cyan transition-all flex items-center space-x-2"
               >
                 <Gamepad2 className="w-4 h-4" />
-                <span>REGISTER FOR E-SPORTS (BGMI)</span>
-              </Link>
-              <Link
-                to="/student/register-event"
-                className="px-5 py-3 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-yellow transition-all flex items-center space-x-2"
-              >
-                <PlusCircle className="w-4 h-4" />
-                <span>OTHER EVENTS</span>
+                <span>E-SPORTS INFO</span>
               </Link>
               <Link
                 to="/student/profile"
@@ -350,13 +353,15 @@ export const StudentDashboardPage: React.FC = () => {
               <p className="font-oswald text-lg text-[#8594A6] uppercase">
                 YOU HAVE NOT REGISTERED FOR ANY EVENTS YET.
               </p>
-              <Link
-                to="/student/register-event"
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-[#FFC800] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-yellow"
+              <a
+                href={GOOGLE_FORM_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-6 py-3 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-yellow transition-all"
               >
-                <span>CHOOSE AN EVENT TO PARTICIPATE</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                <span>CHOOSE AN EVENT ON GOOGLE FORM</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4">

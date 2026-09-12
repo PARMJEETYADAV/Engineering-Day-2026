@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Cpu, Menu, X, User, ShieldCheck, LogOut, Calendar, Trophy, ChevronRight } from 'lucide-react';
+import { Cpu, Menu, X, User, ShieldCheck, LogOut, Calendar, Trophy, ChevronRight, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -134,19 +135,15 @@ export const Navbar: React.FC = () => {
                   <ShieldCheck className="w-3.5 h-3.5 text-[#FFC800]" />
                   <span>ADMIN LOGIN</span>
                 </Link>
-                <Link
-                  to="/login"
-                  className="px-3.5 py-1.5 text-xs font-oswald tracking-widest text-[#D0D5DC] hover:text-white transition-colors"
-                >
-                  LOGIN
-                </Link>
-                <Link
-                  to="/register"
-                  className="relative group px-4 py-1.5 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton tracking-wider text-xs uppercase rounded transition-all shadow-neon-yellow flex items-center space-x-1"
+                <a
+                  href={GOOGLE_FORM_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group px-4 py-1.5 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton tracking-wider text-xs uppercase rounded transition-all shadow-neon-yellow flex items-center space-x-1.5"
                 >
                   <span>REGISTER NOW</span>
-                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                </a>
               </div>
             )}
           </div>
@@ -228,22 +225,16 @@ export const Navbar: React.FC = () => {
                   <span>FACULTY & ADMIN LOGIN</span>
                 </Link>
 
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    to="/login"
-                    onClick={() => setMobileOpen(false)}
-                    className="py-2.5 text-center text-xs font-oswald tracking-widest text-[#D0D5DC] border border-[#00D9FF]/30 rounded hover:bg-white/5"
-                  >
-                    LOGIN
-                  </Link>
-                  <Link
-                    to="/register"
-                    onClick={() => setMobileOpen(false)}
-                    className="py-2.5 text-center text-xs font-anton tracking-wider text-[#010914] bg-[#FFC800] rounded shadow-neon-yellow"
-                  >
-                    REGISTER NOW
-                  </Link>
-                </div>
+                <a
+                  href={GOOGLE_FORM_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full py-3 text-center text-xs font-anton tracking-wider text-[#010914] bg-[#FFC800] hover:bg-[#E5B400] rounded shadow-neon-yellow flex items-center justify-center space-x-1.5"
+                >
+                  <span>REGISTER NOW (GOOGLE FORM)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             )}
           </div>

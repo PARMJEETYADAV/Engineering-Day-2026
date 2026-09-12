@@ -1,18 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Gamepad2, ShieldCheck, ArrowRight, Target } from 'lucide-react';
+import { Gamepad2, ShieldCheck, ArrowRight, Target, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const EsportsHubPage: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
   const handleSelectGame = () => {
-    if (!user) {
-      navigate('/login?redirect=/student/esports/create?game=BGMI');
-    } else {
-      navigate('/student/esports/create?game=BGMI');
-    }
+    window.open(GOOGLE_FORM_REGISTRATION_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -87,14 +84,15 @@ export const EsportsHubPage: React.FC = () => {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={handleSelectGame}
+            <a
+              href={GOOGLE_FORM_REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full py-3.5 bg-[#00D9FF] hover:bg-[#00BFFF] text-[#010914] font-anton text-sm tracking-wider rounded shadow-neon-cyan transition-all flex items-center justify-center space-x-2 relative z-10"
             >
               <span>REGISTER BGMI SQUAD</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Cpu, Mail, Phone, MapPin, Shield, Terminal, ArrowUpRight } from 'lucide-react';
+import { Cpu, Mail, Phone, MapPin, Shield, Terminal, ArrowUpRight, ExternalLink } from 'lucide-react';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const Footer: React.FC = () => {
   return (
@@ -65,9 +66,15 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/register" className="hover:text-[#FFC800] flex items-center space-x-1 transition-colors">
-                  <span>› STUDENT REGISTRATION</span>
-                </Link>
+                <a
+                  href={GOOGLE_FORM_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFC800] flex items-center space-x-1 transition-colors text-[#FFC800]/90"
+                >
+                  <span>› REGISTRATION (GOOGLE FORM)</span>
+                  <ExternalLink className="w-3 h-3 ml-1 opacity-70" />
+                </a>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-[#FFC800] flex items-center space-x-1 transition-colors">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, ChevronRight, Zap, Sparkles, Trophy, Cpu, Code2, Gamepad2, ShieldCheck } from 'lucide-react';
+import { Calendar, ChevronRight, Zap, Sparkles, Trophy, Cpu, Code2, Gamepad2, ShieldCheck, ExternalLink } from 'lucide-react';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -85,13 +86,15 @@ export const HeroSection: React.FC = () => {
 
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-          <Link
-            to="/register"
+          <a
+            href={GOOGLE_FORM_REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-lg tracking-wider rounded transition-all shadow-neon-yellow flex items-center justify-center space-x-2 group hover:scale-[1.02]"
           >
             <span>REGISTER NOW</span>
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+            <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
 
           <Link
             to="/events"

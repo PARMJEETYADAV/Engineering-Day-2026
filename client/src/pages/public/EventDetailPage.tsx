@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Calendar, Clock, MapPin, Users, Award, ShieldCheck, ChevronLeft, ArrowRight, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Award, ShieldCheck, ChevronLeft, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
 import api from '../../services/api';
 import { EventItem } from '../../types';
 import { useAuth } from '../../context/AuthContext';
-
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 import { DEFAULT_EVENTS } from '../../constants/defaultEvents';
 
 export const EventDetailPage: React.FC = () => {
@@ -51,17 +51,7 @@ export const EventDetailPage: React.FC = () => {
   }
 
   const handleRegisterClick = () => {
-    const isEsports =
-      event.category === 'ESPORTS' || event.slug === 'bgmi';
-    const destination = isEsports
-      ? `/student/esports/create?game=BGMI`
-      : `/student/register-event?eventId=${event.id}`;
-
-    if (!user) {
-      navigate(`/login?redirect=${encodeURIComponent(destination)}`);
-    } else {
-      navigate(destination);
-    }
+    window.open(GOOGLE_FORM_REGISTRATION_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -169,13 +159,15 @@ export const EventDetailPage: React.FC = () => {
             </div>
 
             {event.isRegistrationOpen && event.category !== 'CEREMONY' && (
-              <button
-                onClick={handleRegisterClick}
+              <a
+                href={GOOGLE_FORM_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-base tracking-wider rounded shadow-neon-yellow transition-all flex items-center justify-center space-x-2"
               >
                 <span>REGISTER FOR THIS EVENT</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             )}
           </div>
         </div>

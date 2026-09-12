@@ -1,6 +1,7 @@
 import React from 'react';
-import { Award, Compass, Cpu, Target, Users, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { Award, Compass, Cpu, Target, Users, Calendar, MapPin, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GOOGLE_FORM_REGISTRATION_URL } from '../../constants/links';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -95,12 +96,15 @@ export const AboutPage: React.FC = () => {
               </ul>
 
               <div className="pt-4">
-                <Link
-                  to="/register"
-                  className="block w-full py-3 text-center bg-[#FFC800] text-[#010914] font-anton text-sm tracking-wider uppercase rounded shadow-neon-yellow"
+                <a
+                  href={GOOGLE_FORM_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 text-center bg-[#FFC800] hover:bg-[#E5B400] text-[#010914] font-anton text-sm tracking-wider uppercase rounded shadow-neon-yellow flex items-center justify-center gap-2 transition-all"
                 >
-                  JOIN THE FESTIVAL
-                </Link>
+                  <span>JOIN THE FESTIVAL</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
