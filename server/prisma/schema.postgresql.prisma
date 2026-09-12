@@ -91,6 +91,7 @@ model Payment {
   amount          Int
   transactionId   String
   screenshotPath  String?
+  screenshotData  String?
   status          String        @default("UNDER_REVIEW")
   rejectionReason String?
   verifiedBy      String?
@@ -193,6 +194,7 @@ model TeamPayment {
   expectedAmount  Int
   transactionId   String
   screenshotPath  String?
+  screenshotData  String?
   driveUrl        String?
   status          String    @default("UNDER_REVIEW")
   rejectionReason String?

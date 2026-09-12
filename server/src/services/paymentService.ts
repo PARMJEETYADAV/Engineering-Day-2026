@@ -58,7 +58,8 @@ export class PaymentService {
     registrationId: string,
     transactionId: string,
     screenshotPath: string,
-    paymentDate?: Date
+    paymentDate?: Date,
+    screenshotData?: string
   ): Promise<PaymentGatewayResponse> {
     const registration = await prisma.registration.findUnique({
       where: { id: registrationId },
@@ -82,6 +83,7 @@ export class PaymentService {
         amount: verifiedAmount,
         transactionId: transactionId.trim(),
         screenshotPath,
+        screenshotData: screenshotData || undefined,
         status: 'UNDER_REVIEW',
         rejectionReason: null,
         paymentDate: paymentDate || new Date(),
@@ -91,6 +93,7 @@ export class PaymentService {
         amount: verifiedAmount,
         transactionId: transactionId.trim(),
         screenshotPath,
+        screenshotData: screenshotData || undefined,
         status: 'UNDER_REVIEW',
         paymentDate: paymentDate || new Date(),
       },

@@ -102,13 +102,23 @@ export class PaymentController {
 
       // Stored path relative to server root
       const screenshotFilename = req.file.filename;
+      let screenshotData: string | undefined;
+      try {
+        if (req.file.path && fs.existsSync(req.file.path)) {
+          const fileBuf = fs.readFileSync(req.file.path);
+          screenshotData = `data:${req.file.mimetype || 'image/jpeg'};base64,${fileBuf.toString('base64')}`;
+        }
+      } catch (e) {
+        console.warn('Could not encode screenshot fallback:', e);
+      }
 
       // Process payment proof via PaymentService
       const result = await paymentService.processManualUpiPayment(
         registrationId,
         transactionId,
         screenshotFilename,
-        paymentDate ? new Date(paymentDate) : new Date()
+        paymentDate ? new Date(paymentDate) : new Date(),
+        screenshotData
       );
 
       // Notify student
@@ -200,6 +210,19 @@ export class PaymentController {
       }
 
       if (!fs.existsSync(filePath)) {
+        // Ephemeral storage fallback: Reconstruct and serve image from database backup
+        const screenshotData = (payment as any)?.screenshotData || (teamPayment as any)?.screenshotData;
+        if (screenshotData && typeof screenshotData === 'string' && screenshotData.startsWith('data:')) {
+          const matches = screenshotData.match(/^data:([A-Za-z0-9-+\/]+);base64,(.+)$/);
+          if (matches && matches.length === 3) {
+            const contentType = matches[1];
+            const buffer = Buffer.from(matches[2], 'base64');
+            res.setHeader('Content-Type', contentType);
+            res.setHeader('Cache-Control', 'public, max-age=86400');
+            res.send(buffer);
+            return;
+          }
+        }
         res.status(404).json({ success: false, message: 'Payment image file not found on disk.' });
         return;
       }

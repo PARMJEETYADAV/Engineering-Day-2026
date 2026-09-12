@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import fs from 'fs';
 import { PrismaClient } from '@prisma/client';
 import { esportsService } from '../services/esportsService';
 import { AuthenticatedRequest } from '../types';
@@ -422,6 +423,15 @@ export class EsportsController {
 
       // Determine screenshot filename
       const screenshotPath = file ? file.filename : team.payment?.screenshotPath || null;
+      let screenshotData: string | undefined;
+      if (file && file.path && fs.existsSync(file.path)) {
+        try {
+          const fileBuf = fs.readFileSync(file.path);
+          screenshotData = `data:${file.mimetype || 'image/jpeg'};base64,${fileBuf.toString('base64')}`;
+        } catch (e) {
+          console.warn('Could not encode team screenshot fallback:', e);
+        }
+      }
       const officialDriveUrl = driveUrl || process.env.DRIVE_STORAGE_URL || 'https://drive.google.com/drive/folders/1KR_u6xWgPn8Zns9CGV10-tDh8V-J4WCF?usp=drive_link';
 
       await prisma.$transaction(async (tx) => {
@@ -433,6 +443,7 @@ export class EsportsController {
             expectedAmount: totalAmount,
             transactionId: transactionId.trim().toUpperCase(),
             screenshotPath,
+            screenshotData: screenshotData || undefined,
             driveUrl: officialDriveUrl,
             status: 'UNDER_REVIEW',
             paymentDate: new Date(),
@@ -442,6 +453,7 @@ export class EsportsController {
             expectedAmount: totalAmount,
             transactionId: transactionId.trim().toUpperCase(),
             screenshotPath: screenshotPath ?? undefined,
+            screenshotData: screenshotData || undefined,
             driveUrl: officialDriveUrl,
             status: 'UNDER_REVIEW',
             rejectionReason: null,

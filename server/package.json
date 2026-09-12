@@ -4,12 +4,13 @@
   "description": "Production-ready backend API for Engineer's Day 2026 Registration Portal",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "prisma:generate": "prisma generate",
-    "prisma:push": "prisma db push",
-    "prisma:seed": "ts-node-dev prisma/seed.ts",
+    "dev": "node scripts/preparePrisma.js && ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "node scripts/preparePrisma.js && npx prisma generate && tsc",
+    "start": "node scripts/preparePrisma.js && npx prisma generate && npx prisma db push && node dist/index.js",
+    "prisma:prepare": "node scripts/preparePrisma.js",
+    "prisma:generate": "node scripts/preparePrisma.js && prisma generate",
+    "prisma:push": "node scripts/preparePrisma.js && prisma db push",
+    "prisma:seed": "node scripts/preparePrisma.js && ts-node-dev prisma/seed.ts",
     "test": "ts-node-dev src/tests/runAllTests.ts"
   },
   "dependencies": {

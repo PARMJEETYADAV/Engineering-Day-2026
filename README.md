@@ -177,20 +177,27 @@ An integrated, team-based competition engine built specifically for BGMI:
 
 ---
 
-## 🗄️ PostgreSQL Production Setup
+## 🗄️ PostgreSQL Production Setup & Data Persistence
 
-To connect to a production PostgreSQL database (e.g. Supabase, Neon, AWS RDS, GCP Cloud SQL, or Docker):
+Render's free web services run on **ephemeral containers** that spin down after 15 minutes of inactivity ("sleep mode"). If using SQLite (`file:./dev.db`), data is wiped whenever the container restarts.
 
-1. Switch the provider in `server/prisma/schema.prisma` from `sqlite` to `postgresql` (or use `server/prisma/schema.postgresql.prisma`).
-2. Update `DATABASE_URL` in `server/.env`:
-   ```env
-   DATABASE_URL="postgresql://postgres:password@your-db-host:5432/engineering_day_2026?schema=public"
-   ```
-3. Run migrations and seed:
-   ```powershell
-   npx prisma migrate dev --name init
-   npx ts-node-dev prisma/seed.ts
-   ```
+To ensure **100% permanent data persistence** across server sleep, restarts, and redeployments:
+
+### Automatic PostgreSQL Detection
+The server includes a smart pre-build script (`preparePrisma.js`) that automatically detects your database provider from `DATABASE_URL`:
+- If `DATABASE_URL` starts with `postgres://` or `postgresql://`: It instantly switches Prisma to PostgreSQL and synchronizes all tables.
+- If `DATABASE_URL` starts with `file:`: It uses SQLite for local offline development.
+
+### How to set up Persistent PostgreSQL on Render (2 Minutes):
+1. In your **[Render Dashboard](https://dashboard.render.com/)**, click **New +** ➔ **PostgreSQL**.
+2. Name it `engineering-day-db` and select the **Free** plan.
+3. Once created, copy the **Internal Database URL** (or External Database URL).
+4. Go to your **Web Service** (backend API) ➔ **Environment** tab:
+   - Update `DATABASE_URL` with your copied PostgreSQL URL (e.g. `postgresql://user:pass@host/engineering_day_db`).
+5. Click **Save Changes** and deploy.
+   - All student registrations, BGMI teams, and payments will now be saved permanently in PostgreSQL!
+   - Even when the server sleeps, **zero data is lost**.
+   - Uploaded payment proofs are also mirrored into base64 storage in the database so receipts survive container rebuilds!
 
 ---
 
