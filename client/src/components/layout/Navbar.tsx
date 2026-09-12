@@ -54,16 +54,20 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo / Brand */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded bg-gradient-to-br from-[#000510] to-[#021b33] border border-[#00D9FF]/40 flex items-center justify-center shadow-neon-cyan group-hover:border-[#FFC800] transition-colors">
-              <Cpu className="w-6 h-6 text-[#00D9FF] group-hover:text-[#FFC800] transition-colors" />
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-[#000510]/90 border border-[#FFC800]/50 p-1 flex items-center justify-center shadow-[0_0_15px_rgba(255,200,0,0.25)] group-hover:border-[#00D9FF] group-hover:shadow-[0_0_18px_rgba(0,217,255,0.4)] transition-all shrink-0">
+              <img
+                src="/apex-logo.png"
+                alt="Apex University"
+                className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              />
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#FFC800] rounded-full animate-ping" />
             </div>
             <div className="flex flex-col">
               <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none">
                 ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
               </span>
-              <span className="font-tech text-[10px] tracking-[0.25em] text-[#8594A6] uppercase">
-                EDITION 2026
+              <span className="font-tech text-[10px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors">
+                APEX UNIVERSITY • 2026
               </span>
             </div>
           </Link>

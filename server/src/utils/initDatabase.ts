@@ -143,18 +143,20 @@ export async function ensureDatabaseInitialized() {
       },
     }).catch(() => {});
 
-    // Always ensure UPI settings point to official QR and UPI ID
-    await prisma.systemSetting.upsert({
-      where: { key: 'payment_upi_id' },
-      update: { value: '7541841303@ptsbi' },
-      create: { key: 'payment_upi_id', value: '7541841303@ptsbi' },
-    }).catch(() => {});
+    // Ensure initial UPI settings exist without overwriting admin custom settings
+    const existingUpi = await prisma.systemSetting.findUnique({ where: { key: 'payment_upi_id' } });
+    if (!existingUpi) {
+      await prisma.systemSetting.create({
+        data: { key: 'payment_upi_id', value: '7541841303@ptsbi' },
+      }).catch(() => {});
+    }
 
-    await prisma.systemSetting.upsert({
-      where: { key: 'payment_qr_code' },
-      update: { value: '/uploads/qr_codes/default_qr.jpeg' },
-      create: { key: 'payment_qr_code', value: '/uploads/qr_codes/default_qr.jpeg' },
-    }).catch(() => {});
+    const existingQr = await prisma.systemSetting.findUnique({ where: { key: 'payment_qr_code' } });
+    if (!existingQr) {
+      await prisma.systemSetting.create({
+        data: { key: 'payment_qr_code', value: '/uploads/qr_codes/default_qr.jpeg' },
+      }).catch(() => {});
+    }
 
     // 4. Ensure System Settings exist
     const settingsCount = await prisma.systemSetting.count();

@@ -13,15 +13,19 @@ export const Footer: React.FC = () => {
           {/* Brand & Theme */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded bg-[#010914] border border-[#00D9FF]/50 flex items-center justify-center shadow-neon-cyan">
-                <Cpu className="w-6 h-6 text-[#00D9FF]" />
+              <div className="w-11 h-11 rounded-lg bg-[#010914] border border-[#FFC800]/50 p-1 flex items-center justify-center shadow-[0_0_12px_rgba(255,200,0,0.25)] shrink-0">
+                <img
+                  src="/apex-logo.png"
+                  alt="Apex University"
+                  className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-anton tracking-wider text-xl text-white">
-                  ENGINEERING <span className="text-[#FFC800]">DAY</span>
+                  ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
                 </span>
-                <span className="font-tech text-[10px] text-[#00D9FF] tracking-widest font-semibold">
-                  EDITION 2026
+                <span className="font-tech text-[10px] text-[#FFC800] tracking-widest font-semibold uppercase">
+                  APEX UNIVERSITY • 2026
                 </span>
               </div>
             </div>
