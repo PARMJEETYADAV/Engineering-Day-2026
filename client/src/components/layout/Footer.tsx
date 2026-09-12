@@ -12,20 +12,20 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand & Theme */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 rounded-lg bg-[#010914] border border-[#FFC800]/50 p-1 flex items-center justify-center shadow-[0_0_12px_rgba(255,200,0,0.25)] shrink-0">
+            <div className="flex items-center space-x-3.5">
+              <div className="relative h-13 sm:h-14 w-auto flex items-center justify-center shrink-0">
                 <img
                   src="/apex-logo.png"
-                  alt="Apex University"
-                  className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                  alt="Apex University Official Emblem"
+                  className="h-full w-auto object-contain filter drop-shadow-[0_0_12px_rgba(0,217,255,0.4)]"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-anton tracking-wider text-xl text-white">
-                  ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
-                </span>
-                <span className="font-tech text-[10px] text-[#FFC800] tracking-widest font-semibold uppercase">
+                <span className="font-tech text-[10px] text-[#FFC800] tracking-[0.2em] font-bold uppercase">
                   APEX UNIVERSITY • 2026
+                </span>
+                <span className="font-anton tracking-wider text-xl sm:text-2xl text-white mt-0.5">
+                  ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
                 </span>
               </div>
             </div>

@@ -55,19 +55,24 @@ export const AdminLayout: React.FC = () => {
     <div className="bg-[#000510] min-h-screen text-[#FFFFFF] flex flex-col">
       {/* Top Admin Header */}
       <header className="bg-[#010914] border-b border-[#00D9FF]/30 px-4 sm:px-8 py-3.5 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <div className="w-9 h-9 rounded-lg bg-[#000510] border border-[#FFC800]/50 p-0.5 flex items-center justify-center shadow-[0_0_10px_rgba(255,200,0,0.25)] shrink-0">
+        <div className="flex items-center space-x-3.5">
+          <div className="relative h-11 sm:h-12 w-auto flex items-center justify-center shrink-0">
             <img
               src="/apex-logo.png"
-              alt="Apex University"
-              className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              alt="Apex University Official Emblem"
+              className="h-full w-auto object-contain filter drop-shadow-[0_0_10px_rgba(0,217,255,0.4)]"
             />
           </div>
           <div>
-            <span className="font-anton text-lg tracking-wider text-white">
-              ENGINEER'S DAY 2026 <span className="text-[#FFC800]">ADMIN CONSOLE</span>
-            </span>
-            <span className="block font-tech text-[10px] text-[#00D9FF]">
+            <div className="flex items-center space-x-2">
+              <span className="font-anton text-lg sm:text-xl tracking-wider text-white">
+                ENGINEER'S DAY 2026 <span className="text-[#FFC800]">ADMIN CONSOLE</span>
+              </span>
+              <span className="hidden sm:inline-block bg-[#FFC800]/20 text-[#FFC800] border border-[#FFC800]/40 text-[10px] font-tech font-bold px-2 py-0.5 rounded">
+                OFFICIAL
+              </span>
+            </div>
+            <span className="block font-tech text-[10px] text-[#00D9FF] tracking-wider">
               APEX UNIVERSITY • FACULTY OF ENGINEERING & TECHNOLOGY
             </span>
           </div>

@@ -53,21 +53,21 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo / Brand */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-[#000510]/90 border border-[#FFC800]/50 p-1 flex items-center justify-center shadow-[0_0_15px_rgba(255,200,0,0.25)] group-hover:border-[#00D9FF] group-hover:shadow-[0_0_18px_rgba(0,217,255,0.4)] transition-all shrink-0">
+          <Link to="/" className="flex items-center space-x-3.5 group">
+            <div className="relative h-12 sm:h-14 md:h-15 w-auto flex items-center justify-center shrink-0 group-hover:scale-105 transition-all duration-300">
               <img
                 src="/apex-logo.png"
-                alt="Apex University"
-                className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                alt="Apex University Official Emblem"
+                className="h-full w-auto object-contain filter drop-shadow-[0_0_12px_rgba(0,217,255,0.4)] group-hover:drop-shadow-[0_0_18px_rgba(255,200,0,0.65)] transition-all"
               />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#FFC800] rounded-full animate-ping" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FFC800] rounded-full border border-[#010914] shadow-[0_0_8px_#FFC800] animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none">
-                ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
-              </span>
-              <span className="font-tech text-[10px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors">
+              <span className="font-tech text-[10px] sm:text-[11px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors leading-tight">
                 APEX UNIVERSITY • 2026
+              </span>
+              <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none mt-0.5">
+                ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
               </span>
             </div>
           </Link>
