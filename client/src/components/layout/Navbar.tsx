@@ -62,12 +62,12 @@ export const Navbar: React.FC = () => {
               />
               <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FFC800] rounded-full border border-[#010914] shadow-[0_0_8px_#FFC800] animate-pulse" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-tech text-[10px] sm:text-[11px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors leading-tight">
-                APEX UNIVERSITY • 2026
+            <div className="flex flex-col justify-center">
+              <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none">
+                APEX <span className="text-[#00D9FF]">UNIVERSITY</span>
               </span>
-              <span className="font-anton tracking-wider text-xl sm:text-2xl text-white group-hover:text-[#FFC800] transition-colors leading-none mt-0.5">
-                ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
+              <span className="font-tech text-[10px] sm:text-[11px] tracking-[0.2em] text-[#FFC800] uppercase font-bold group-hover:text-[#00D9FF] transition-colors leading-tight mt-1">
+                ENGINEER'S DAY • 2026
               </span>
             </div>
           </Link>

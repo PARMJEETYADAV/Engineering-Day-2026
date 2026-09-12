@@ -20,12 +20,12 @@ export const Footer: React.FC = () => {
                   className="h-full w-auto object-contain filter drop-shadow-[0_0_12px_rgba(0,217,255,0.4)]"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-tech text-[10px] text-[#FFC800] tracking-[0.2em] font-bold uppercase">
-                  APEX UNIVERSITY • 2026
+              <div className="flex flex-col justify-center">
+                <span className="font-anton tracking-wider text-xl sm:text-2xl text-white">
+                  APEX <span className="text-[#00D9FF]">UNIVERSITY</span>
                 </span>
-                <span className="font-anton tracking-wider text-xl sm:text-2xl text-white mt-0.5">
-                  ENGINEER'S <span className="text-[#00D9FF]">DAY</span>
+                <span className="font-tech text-[10px] text-[#FFC800] tracking-[0.2em] font-bold uppercase mt-1">
+                  ENGINEER'S DAY • 2026
                 </span>
               </div>
             </div>
