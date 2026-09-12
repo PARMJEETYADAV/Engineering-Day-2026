@@ -173,7 +173,9 @@ export async function ensureDatabaseInitialized() {
         { key: 'payment_account_name', value: "Engineer's Day 2026 Organizers", description: 'Payment Account Name' },
       ];
       for (const s of defaultSettings) {
-        await prisma.systemSetting.create({ data: s });
+        await prisma.systemSetting.create({
+          data: { key: s.key, value: s.value },
+        });
       }
       console.log(`⚙️ Auto-seeded core system settings`);
     }
